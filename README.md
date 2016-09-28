@@ -1,4 +1,4 @@
 # wdi-project-3
-miriam
+simba
 Ben Green
 Laura Tombs
