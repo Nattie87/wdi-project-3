@@ -21,16 +21,15 @@ function Router($stateProvider, $locationProvider, $urlRouterProvider){
     templateUrl: "/js/views/login.html",
     controller: "loginCtrl as login",
   })
-  .state("usersIndex", {
-    url: "/users",
-    templateUrl:  "/js/views/users/index.html",
-    controller:   "usersIndexCtrl as usersIndex",
-  })
+  // .state("usersIndex", {
+  //   url: "/users/",
+  //   templateUrl:  "/js/views/users/show.html",
+  //   controller:   "usersIndexCtrl as usersIndex",
+  // })
   .state("usersShow", {
     url: "/users/:id",
     templateUrl:  "/js/views/users/show.html",
-    controller:   "usersShowCtrl as userShow",
+    controller:   "usersShowCtrl as usersShow",
   });
-
   $urlRouterProvider.otherwise("/");
 }
