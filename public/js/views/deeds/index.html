@@ -1,0 +1,7 @@
+<h1>Deeds</h1>
+<ul>
+  <li ng-repeat="deed in deeds.deeds track by $index" ui-sref="deedShow({ id: deed._id })">
+    {{ deed.deed }}
+    {{ deed.user.username}}
+  </li>
+</ul>
