@@ -31,11 +31,11 @@
               <li ng-hide="main.user">
                 <a ui-sref="login">Login</a>
               </li>
-              <li ng-show="main.user">
+              <!-- <li ng-show="main.user">
                 <a ui-sref="usersIndex">Users</a>
-              </li>
+              </li> -->
               <li ng-show="main.user">
-                <a>Welcome, {{ main.user.username }}</a>
+                <a ng-click="main.usersShow(main.user)">Welcome, {{ main.user.username }} {{ main.user._id }}</a>
               </li>
               <li ng-show="main.user">
                 <a ng-click="main.logout()">Logout</a>

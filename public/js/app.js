@@ -49945,8 +49945,19 @@ var token=TokenService.getToken();if(config.url.indexOf(API)===0&&token){config.
 if(res.config.url.indexOf(API)===0&&res.data.token){TokenService.setToken(res.data.token);}return res;}};}
 "use strict";angular.module("goodVibes").service("CurrentUserService",CurrentUserService);CurrentUserService.$inject=["$rootScope","TokenService"];function CurrentUserService($rootScope,TokenService){//will save the user to this service
 var currentUser=TokenService.decodeToken();return{user:currentUser,saveUser:function saveUser(user){currentUser=user;$rootScope.$broadcast("loggedIn");},getUser:function getUser(){return currentUser;},clearUser:function clearUser(){currentUser=null;TokenService.clearToken();$rootScope.$broadcast("loggedOut");}};}
-"use strict";//this controller is getting the data from the backend
-angular.module("goodVibes").controller("usersIndexCtrl",usersIndexCtrl);usersIndexCtrl.$inject=["User"];function usersIndexCtrl(User){var vm=this;User.query(function(data){vm.users=data.users;});}
+//this controller is getting the data from the backend
+// angular
+//   .module("goodVibes")
+//   .controller("usersIndexCtrl", usersIndexCtrl);
+//
+// usersIndexCtrl.$inject = ["User"];
+// function usersIndexCtrl(User){
+//   const vm   = this;
+//   User.query(data => {
+//     vm.users = data.users;
+//   });
+// }
+"use strict";
 "use strict";//do this because we want to affect the httpProvider
 angular.module("goodVibes")//config has to be used because it is loaded right at the start
 .config(setUpInterceptor);setUpInterceptor.$inject=["$httpProvider"];function setUpInterceptor($httpProvider){return $httpProvider.interceptors.push("AuthInterceptor");}
@@ -49955,12 +49966,18 @@ vm.login=function(){//pass the whole user in
 //not expecting req.body.user
 //user is built from html form
 User.login(vm.user).$promise.then(function(data){var user=data.user?data.user:null;if(user){CurrentUserService.saveUser(user);}console.log(data);});};}
-"use strict";angular.module("goodVibes").controller("mainCtrl",mainCtrl);mainCtrl.$inject=["$rootScope","CurrentUserService","$state"];function mainCtrl($rootScope,CurrentUserService,$state){var vm=this;vm.user=CurrentUserService.getUser();vm.logout=function(){event.preventDefault();CurrentUserService.clearUser();};$rootScope.$on("loggedIn",function(){vm.user=CurrentUserService.getUser();$state.go("usersIndex");});$rootScope.$on("loggedOut",function(){vm.user=null;$state.go("home");});}
+"use strict";angular.module("goodVibes").controller("mainCtrl",mainCtrl);mainCtrl.$inject=["User","$rootScope","CurrentUserService","$state","$stateParams"];function mainCtrl(User,$rootScope,CurrentUserService,$state,$stateParams){var vm=this;vm.user=CurrentUserService.getUser();vm.logout=function(){event.preventDefault();CurrentUserService.clearUser();};vm.usersShow=function(user){User.get($stateParams,function(user){$state.go("usersShow");});};$rootScope.$on("loggedIn",function(){vm.user=CurrentUserService.getUser();$state.go("usersIndex");});$rootScope.$on("loggedOut",function(){vm.user=null;$state.go("home");});}
 "use strict";angular.module("goodVibes").controller("registerCtrl",registerCtrl);registerCtrl.$inject=["User","CurrentUserService"];function registerCtrl(User,CurrentUserService){//vm is controller
 var vm=this;vm.register=function(){// need user key because in backend its req.body.user, so need to specify a key
 //post with key of user and value being model on the form
 User.register({user:vm.user}).$promise.then(function(data){var user=data.user?data.user:null;if(user){CurrentUserService.saveUser(user);}});};}
-"use strict";angular.module("goodVibes").config(Router);Router.$inject=["$stateProvider","$locationProvider","$urlRouterProvider"];function Router($stateProvider,$locationProvider,$urlRouterProvider){$locationProvider.html5Mode(true);$stateProvider.state("home",{url:"/",templateUrl:"/js/views/home.html"}).state("register",{url:"/register",templateUrl:"/js/views/register.html",controller:"registerCtrl as register"}).state("login",{url:"/login",templateUrl:"/js/views/login.html",controller:"loginCtrl as login"}).state("usersIndex",{url:"/users",templateUrl:"/js/views/users/index.html",controller:"usersIndexCtrl as usersIndex"});$urlRouterProvider.otherwise("/");}
+"use strict";angular.module("goodVibes").config(Router);Router.$inject=["$stateProvider","$locationProvider","$urlRouterProvider"];function Router($stateProvider,$locationProvider,$urlRouterProvider){$locationProvider.html5Mode(true);$stateProvider.state("home",{url:"/",templateUrl:"/js/views/home.html"}).state("register",{url:"/register",templateUrl:"/js/views/register.html",controller:"registerCtrl as register"}).state("login",{url:"/login",templateUrl:"/js/views/login.html",controller:"loginCtrl as login"})// .state("usersIndex", {
+//   url: "/users/",
+//   templateUrl:  "/js/views/users/show.html",
+//   controller:   "usersIndexCtrl as usersIndex",
+// })
+.state("usersShow",{url:"/users/:id",templateUrl:"/js/views/users/show.html",controller:"usersShowCtrl as usersShow"});$urlRouterProvider.otherwise("/");}
+"use strict";angular.module("goodVibes").controller("usersShowCtrl",usersShowCtrl);usersShowCtrl.$inject=["User"];function usersShowCtrl(User){var vm=this;User.query(function(data){vm.users=data.users;});}// add edit and delete functions here??
 "use strict";angular.module("goodVibes").service("TokenService",TokenService);//service is like an actual constructor function
 //when injected it's newed, instantiated as new
 TokenService.$inject=["$window","jwtHelper"];function TokenService($window,jwtHelper){var self=this;self.setToken=setToken;self.getToken=getToken;self.decodeToken=decodeToken;self.clearToken=clearToken;function setToken(token){return $window.localStorage.setItem("auth-token",token);}function getToken(){return $window.localStorage.getItem("auth-token");}function decodeToken(){var token=self.getToken();return token?jwtHelper.decodeToken(token):null;}function clearToken(){return $window.localStorage.removeItem("auth-token");}}

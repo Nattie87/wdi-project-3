@@ -2,8 +2,8 @@ angular
   .module("goodVibes")
   .controller("mainCtrl", mainCtrl);
 
-mainCtrl.$inject = ["$rootScope", "CurrentUserService", "$state"];
-function mainCtrl($rootScope, CurrentUserService, $state) {
+mainCtrl.$inject = ["User", "$rootScope", "CurrentUserService", "$state", "$stateParams"];
+function mainCtrl(User, $rootScope, CurrentUserService, $state, $stateParams) {
   const vm = this;
 
   vm.user = CurrentUserService.getUser();
@@ -11,6 +11,13 @@ function mainCtrl($rootScope, CurrentUserService, $state) {
   vm.logout = () => {
     event.preventDefault();
     CurrentUserService.clearUser();
+  };
+
+  vm.usersShow = (user) => {
+    User.get($stateParams, user => {
+      $state.go("usersShow");
+    });
+
   };
 
   $rootScope.$on("loggedIn", () => {
