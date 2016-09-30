@@ -49945,6 +49945,7 @@ var token=TokenService.getToken();if(config.url.indexOf(API)===0&&token){config.
 if(res.config.url.indexOf(API)===0&&res.data.token){TokenService.setToken(res.data.token);}return res;}};}
 "use strict";angular.module("goodVibes").service("CurrentUserService",CurrentUserService);CurrentUserService.$inject=["$rootScope","TokenService"];function CurrentUserService($rootScope,TokenService){//will save the user to this service
 var currentUser=TokenService.decodeToken();return{user:currentUser,saveUser:function saveUser(user){currentUser=user;$rootScope.$broadcast("loggedIn");},getUser:function getUser(){return currentUser;},clearUser:function clearUser(){currentUser=null;TokenService.clearToken();$rootScope.$broadcast("loggedOut");}};}
+"use strict";angular.module("goodVibes").factory("Deed",deedFactory);deedFactory.$inject=["$resource","API"];function Deed($resource,API){return $resource(API+"/deeds/:id",{id:'@_id'},{'get':{method:'GET'},'save':{method:'POST'},'remove':{method:'DELETE'},'delete':{method:'DELETE'},'query':{method:'GET',isArray:false},'update':{method:'PUT'}});}
 "use strict";angular.module("goodVibes").controller("DeedEditCtrl",DeedEditCtrl);DeedEditCtrl.$inject=["Deed","$stateParams","$state"];function DeedEditCtrl(Deed,$stateParams,$state){var vm=this;Deed.get($stateParams,function(data){vm.Deed=data.Deed;});vm.submit=function(){Deed.update($stateParams,{Deed:vm.Deed}).$promise.then(function(data){$state.go("deedShow",$stateParams);});};}
 //this controller is getting the data from the backend
 // angular
