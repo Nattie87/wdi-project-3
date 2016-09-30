@@ -1,5 +1,6 @@
 module.exports = {
   index:  deedsIndex,
+  create: deedsCreate,
   show:   deedsShow,
   update: deedsUpdate,
   delete: deedsDelete
@@ -14,6 +15,14 @@ function deedsIndex(req, res) {
   .exec((err, deeds) => {
     if (err) return res.status(500).json({ message: "Something went wrong." });
     return res.status(200).json({ deeds });
+  });
+}
+
+function deedsCreate(req, res) {
+  let deed = new Deed(req.body.deed);
+  user.save((err, user) => {
+    if (err) return res.status(500).json({ message: "Something went wrong." });
+    return res.status(201).json({ deed });
   });
 }
 
