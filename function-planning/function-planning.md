@@ -82,7 +82,7 @@ Build home HTML to include:
 - create routes for register and login
 
 **config/config.js**
-- add authenication db
+- add authentication db
 - add secret process.env
 
 ##User index (this is what shows after logged in or registered)
