@@ -4,7 +4,7 @@ angular
 
 userFactory.$inject =["API", "$resource"];
 function userFactory(API, $resource){
-  return $resource(`${API}/users/:id`, { id: "@_id"}, {
+  return $resource(`${API}/users/:userid`, { userid: "@_id"}, {
     'query': { method: "GET", isArray: false },
     //just adding another custom method to user factory and this case give it specific url
     //these will overwrite url in resource on top

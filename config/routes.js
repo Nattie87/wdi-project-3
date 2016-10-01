@@ -12,7 +12,7 @@ router.route("/login")
 
 router.route('/users')
   .get(users.index);
-router.route('/users/:id')
+router.route('/users/:userid')
   .get(users.show)
   .put(users.update)
   .delete(users.delete);

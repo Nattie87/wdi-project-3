@@ -2,12 +2,12 @@ angular
   .module("goodVibes")
   .controller("DeedIndexCtrl", DeedIndexCtrl);
 
-DeedIndexCtrl.$inject = ["Deed"];
-function DeedIndexCtrl(Deed){
+DeedIndexCtrl.$inject = ["Deed", "$stateParams"];
+function DeedIndexCtrl(Deed, $stateParams){
   const vm = this;
 
   Deed
-    .query()
+    .query($stateParams)
     .$promise
     .then(data => {
       vm.deeds = data.deeds;

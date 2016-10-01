@@ -15,7 +15,8 @@ function mainCtrl(User, Deed, $rootScope, CurrentUserService, $state, $statePara
 
   vm.usersShow = (user) => {
     User.get($stateParams, user => {
-      $stateParams.id = vm.user.id;
+      // $stateParams.id = vm.user.id;
+      $stateParams.userid = vm.user.id;
       $state.go("usersShow", $stateParams);
     });
   };

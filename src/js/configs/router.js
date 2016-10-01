@@ -22,19 +22,19 @@ function Router($stateProvider, $locationProvider, $urlRouterProvider){
     controller: "loginCtrl as login",
   })
   .state("usersShow", {
-    url: "/users/:id",
+    url: "/users/:userid",
     templateUrl:  "/js/views/users/show.html",
     controller:   "usersShowCtrl as usersShow",
   })
   .state("deedIndex", {
     url: "/deeds",
     templateUrl:  "/js/views/deeds/index.html",
-    controller:   "DeedIndexCtrl as deed",
+    controller:   "DeedIndexCtrl as DeedIndexCtrl",
   })
   .state("deedNew", {
     url: "/deeds/new",
     templateUrl:  "/js/views/deeds/new.html",
-    controller:   "DeedNewCtrl as deed",
+    controller:   "DeedNewCtrl as DeedNewCtrl",
   })
   .state("deedShow", {
     url: "/deeds/:id",
