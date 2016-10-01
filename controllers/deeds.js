@@ -20,7 +20,7 @@ function deedsIndex(req, res) {
 
 function deedsCreate(req, res) {
   let deed = new Deed(req.body.deed);
-  user.save((err, user) => {
+  deed.save((err, deed) => {
     if (err) return res.status(500).json({ message: "Something went wrong." });
     return res.status(201).json({ deed });
   });

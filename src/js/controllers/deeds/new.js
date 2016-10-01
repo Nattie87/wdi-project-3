@@ -9,6 +9,7 @@ function DeedNewCtrl(Deed, $state){
   // Must be wrapped in a function so that it is not invoked immediately
   // $save is an instance method
   vm.submit = () => {
+    console.log("DeedNewCtrl.deed", vm.deed);
     Deed
       .save({ deed: vm.deed })
       .$promise

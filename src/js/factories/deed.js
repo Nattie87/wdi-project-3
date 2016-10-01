@@ -3,7 +3,7 @@ angular
   .factory("Deed", deedFactory);
 
   deedFactory.$inject = ["$resource", "API"];
-  function Deed($resource, API){
+  function deedFactory($resource, API){
     return $resource(`${API}/deeds/:id`,
       { id: '@_id' },
       {

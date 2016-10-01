@@ -2,8 +2,8 @@ angular
   .module("goodVibes")
   .controller("mainCtrl", mainCtrl);
 
-mainCtrl.$inject = ["User", "$rootScope", "CurrentUserService", "$state", "$stateParams"];
-function mainCtrl(User, $rootScope, CurrentUserService, $state, $stateParams) {
+mainCtrl.$inject = ["User", "Deed", "$rootScope", "CurrentUserService", "$state", "$stateParams"];
+function mainCtrl(User, Deed, $rootScope, CurrentUserService, $state, $stateParams) {
   const vm = this;
 
   vm.user = CurrentUserService.getUser();
@@ -15,14 +15,17 @@ function mainCtrl(User, $rootScope, CurrentUserService, $state, $stateParams) {
 
   vm.usersShow = (user) => {
     User.get($stateParams, user => {
-      $state.go("usersShow");
+      // $stateParams.id = vm.user.id;
+      $stateParams.userid = vm.user.id;
+      $state.go("usersShow", $stateParams);
     });
-
   };
+
 
   $rootScope.$on("loggedIn", () => {
     vm.user = CurrentUserService.getUser();
-    $state.go("usersIndex");
+    console.log("logged in", vm.user);
+    // $state.go("usersIndex");
   });
 
   $rootScope.$on("loggedOut", () => {
