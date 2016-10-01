@@ -11,7 +11,7 @@ const Deed  = require('../models/deed');
 function deedsIndex(req, res) {
   Deed
   .find()
-  .populate("user")
+  .populate("userid")
   .exec((err, deeds) => {
     if (err) return res.status(500).json({ message: "Something went wrong." });
     return res.status(200).json({ deeds });
