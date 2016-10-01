@@ -2,8 +2,8 @@ angular
   .module("goodVibes")
   .controller("loginCtrl", loginCtrl);
 
-loginCtrl.$inject = ["User", "CurrentUserService"];
-function loginCtrl(User, CurrentUserService) {
+loginCtrl.$inject = ["User",  "CurrentUserService", "$window"];
+function loginCtrl(User, CurrentUserService, $window) {
   const vm = this;
   //this will send an http request to the backend and will look at req.body.email and req.body.password
   vm.login = () => {
@@ -17,9 +17,10 @@ function loginCtrl(User, CurrentUserService) {
       const user = data.user ? data.user : null;
       if(user) {
         CurrentUserService.saveUser(user);
+        $window.location.href="/";
 
       }
-      console.log(data);
+      console.log("login controller", data);
     });
   };
 }
