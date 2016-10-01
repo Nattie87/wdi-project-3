@@ -11,6 +11,7 @@ function DeedNewCtrl(Deed, $state, $stateParams){
   // Must be wrapped in a function so that it is not invoked immediately
   // $save is an instance method
   vm.submit = () => {
+    vm.deed.userid = $stateParams.userid;
     console.log("DeedNewCtrl.deed", vm.deed);
     Deed
       .save({ deed: vm.deed })

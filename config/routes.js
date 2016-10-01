@@ -20,9 +20,13 @@ router.route('/users/:userid')
   router.route('/deeds')
     .get(deeds.index)
     .post(deeds.create);
+  router.route('/deeds/user=:userid')
+      .get(deeds.indexForUser);
   router.route('/deeds/:id')
     .get(deeds.show)
     .put(deeds.update)
     .delete(deeds.delete);
+
+
 
 module.exports = router;

@@ -1,5 +1,6 @@
 module.exports = {
   index:  deedsIndex,
+  indexForUser: deedsIndexForUser,
   create: deedsCreate,
   show:   deedsShow,
   update: deedsUpdate,
@@ -17,6 +18,17 @@ function deedsIndex(req, res) {
     return res.status(200).json({ deeds });
   });
 }
+
+function deedsIndexForUser(req, res) {
+  Deed.find({userid:req.params.userid})
+  .populate("userid")
+  .exec((err, deeds) => {
+    console.log(deeds);
+    if (err) return res.status(500).json({ message: "Something went wrong." });
+    return res.status(200).json({ deeds });
+  });
+}
+
 
 function deedsCreate(req, res) {
   let deed = new Deed(req.body.deed);

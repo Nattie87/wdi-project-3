@@ -10,7 +10,7 @@ function usersShowCtrl(User, Deed, $stateParams, $state){
     vm.user = data.user;
   });
 
-  Deed.query($stateParams)
+  Deed.query_for_user($stateParams)
     .$promise
     .then(data => {
       vm.deeds = data.deeds;
