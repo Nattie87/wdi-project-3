@@ -16,11 +16,6 @@ function usersShowCtrl(User, Deed, $stateParams, $state){
       vm.deeds = data.deeds;
     });
 
-  vm.goToNewDeed = () => {
-    event.preventDefault();
-    console.log("goToNewDeed");
-    $state.go("deedNew", $stateParams);
-  };
 }
 
  // add edit and delete functions here??

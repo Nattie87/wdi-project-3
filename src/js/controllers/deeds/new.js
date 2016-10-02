@@ -2,23 +2,23 @@ angular
   .module("goodVibes")
   .controller("DeedNewCtrl", DeedNewCtrl);
 
-DeedNewCtrl.$inject = ["Deed", "$state", "$stateParams"];
-function DeedNewCtrl(Deed, $state, $stateParams){
+DeedNewCtrl.$inject = ["Deed", "$state", "CurrentUserService"];
+function DeedNewCtrl(Deed, $state, CurrentUserService){
   const vm  = this;
+  vm.user = CurrentUserService.getUser();
 
-    console.log("DeedNewCtrl.$stateParams1", $stateParams);
 
   // Must be wrapped in a function so that it is not invoked immediately
   // $save is an instance method
   vm.submit = () => {
-    vm.deed.userid = $stateParams.userid;
+    vm.deed.userid = vm.user.id;
     console.log("DeedNewCtrl.deed", vm.deed);
     Deed
       .save({ deed: vm.deed })
       .$promise
       .then(data => {
-        console.log("DeedNewCtrl.$stateParams2", $stateParams);
-        $state.go("usersShow", $stateParams);
+
+        $state.go("myTasks");
       });
   };
 }

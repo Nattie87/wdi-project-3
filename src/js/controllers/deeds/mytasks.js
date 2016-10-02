@@ -14,4 +14,5 @@ function MyTasksCtrl(Deed, CurrentUserService){
     .then(data => {
       vm.deeds = data.deeds;
     });
+
 }
