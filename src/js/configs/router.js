@@ -22,7 +22,7 @@ function Router($stateProvider, $locationProvider, $urlRouterProvider){
     controller: "loginCtrl as login",
   })
   .state("usersShow", {
-    url: "/users/:userid",
+    url: "/users/:id",
     templateUrl:  "/js/views/users/show.html",
     controller:   "usersShowCtrl as usersShow",
   })
