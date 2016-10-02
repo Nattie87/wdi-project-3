@@ -2,18 +2,24 @@ angular
   .module("goodVibes")
   .controller("usersShowCtrl", usersShowCtrl);
 
-usersShowCtrl.$inject = ["User", "$stateParams", "$state"];
-function usersShowCtrl(User, $stateParams, $state){
+usersShowCtrl.$inject = ["User", "Deed", "$stateParams", "$state"];
+function usersShowCtrl(User, Deed, $stateParams, $state){
   const vm   = this;
+
   User.query($stateParams,data => {
-    vm.users = [data.user];
-    console.log("usersShowCtrl.users", vm.users);
+    vm.user = data.user;
   });
+
+  Deed.query_for_user($stateParams)
+    .$promise
+    .then(data => {
+      vm.deeds = data.deeds;
+    });
 
   vm.goToNewDeed = () => {
     event.preventDefault();
     console.log("goToNewDeed");
-    $state.go("deedNew");
+    $state.go("deedNew", $stateParams);
   };
 }
 

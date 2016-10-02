@@ -1,16 +1,29 @@
 
-<h1>Users</h1>
-<div class="media" ng-repeat="user in usersShow.users">
-  <div class="media-left">
+<h1>My Profile</h1>
+<div class="media">
+  <div class="media-left" >
     <!-- <a ui-sref="userShow({ id: userShow._id })"> -->
-      <img class="media-object" ng-src="{{ user.image }}">
+      <img class="media-object" ng-src="{{ usersShowCtrl.user.image }}">
     </a>
   </div>
   <div class="media-body">
-    <h4 class="media-heading">{{ user.username }}</h4>
-    <p>{{ user.email }}</p>
-    <h1>THIS IS THE SINGLE USER PAGE</h1>
+    <h4 class="media-heading">User: {{ usersShowCtrl.user.username }}</h4>
+    <p>{{ usersShowCtrl.user.email }}</p>
+
   </div>
 </div>
 
-<h1><a ng-click="usersShow.goToNewDeed()">---------> Create Deed</a></h1>
+<h1>Tasks I Want Done:</h1>
+<ul>
+
+  <div class="taskText" ng-repeat="deed in usersShowCtrl.deeds track by $index" ui-sref="deedShow({ id: deed._id })">
+    <img class="placeholder" src="https://placeholdit.imgix.net/~text?txtsize=28&bg=0099ff&txtclr=ffffff&txt=img&w=100&h=100&fm=png" />
+    DEED: {{ deed.deed }}
+    USER: {{ deed.userid.username }}
+    <!-- <button type="button">Delete</button> -->
+    <!-- USER: {{ deed.user.username}} -->
+  </div>
+
+</ul>
+
+<button ng-click="usersShowCtrl.goToNewDeed()" type="button">Create Deed</button>

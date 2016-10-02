@@ -1,3 +1,26 @@
 @import "bower";
 @import "body";
 @import "modules/navbar";
+
+ul {
+  li {
+    a {
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.myTasks {
+  width: 300px;
+  height: 100px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  border: 1px solid black;
+}
+
+.placeholder {
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
