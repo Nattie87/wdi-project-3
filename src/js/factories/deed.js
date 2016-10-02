@@ -5,15 +5,19 @@ angular
   deedFactory.$inject = ["$resource", "API"];
   function deedFactory($resource, API){
     return $resource(`${API}/deeds/:id`,
-      { id: '@_id' , userid: "@_id"},
+      { id: '@_id'},
       {
-        'get':    { method: 'GET' },
-        'save':   { method: 'POST' },
-        'remove': { method: 'DELETE' },
-        'delete': { method: 'DELETE' },
-        'query':    { method:'GET', isArray: false },
-        'update':   { method: 'PUT' },
-        'query_for_user': { method: 'GET', url: `${API}/deeds/user=:userid`}
+        'get':            { method: 'GET' },
+        'save':           { method: 'POST' },
+        'remove':         { method: 'DELETE' },
+        'delete':         { method: 'DELETE' },
+        'query':          { method:'GET', isArray: false },
+        'update':         { method: 'PUT' },
+        'query_for_user': {
+          method: 'GET',
+          url: `${API}/users/:id/deeds`,
+          params: { id: '@_id'}
+        }
       }
     );
   }

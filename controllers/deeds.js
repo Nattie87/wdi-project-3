@@ -20,18 +20,17 @@ function deedsIndex(req, res) {
 }
 
 function deedsIndexForUser(req, res) {
-  Deed.find({userid:req.params.userid})
+  Deed.find({userid:req.params.id})
   .populate("userid")
   .exec((err, deeds) => {
-    console.log(deeds);
     if (err) return res.status(500).json({ message: "Something went wrong." });
     return res.status(200).json({ deeds });
   });
 }
 
-
 function deedsCreate(req, res) {
-  let deed = new Deed(req.body.deed);
+  let deed    = new Deed(req.body.deed);
+  deed.userid = req.user._id;
   deed.save((err, deed) => {
     if (err) return res.status(500).json({ message: "Something went wrong." });
     return res.status(201).json({ deed });

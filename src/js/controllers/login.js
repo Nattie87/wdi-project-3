@@ -15,7 +15,8 @@ function loginCtrl(User, CurrentUserService, $window, $state) {
     .$promise
     .then(data => {
       const user = data.user ? data.user : null;
-      if(user) {
+      if (user) {
+        user.id = user._id;
         CurrentUserService.saveUser(user);
         $state.go("home");
       }
