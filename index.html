@@ -33,7 +33,10 @@
               <a ui-sref="login">login</a>
             </li>
             <li ng-show="main.user">
-              <a ng-click="main.usersShow(main.user)">hello {{ main.user.username }} {{ main.user._id }}</a>
+              <a ui-sref="deedIndex">Deeds</a>
+            </li>
+            <li ng-show="main.user">
+              <a ui-sref="usersShow({ id: main.user.id })">hello {{ main.user.username }} {{ main.user.id }}</a>
             </li>
             <li ng-show="main.user">
               <a ng-click="main.logout()">logout</a>
