@@ -10,6 +10,7 @@ function Router($stateProvider, $locationProvider, $urlRouterProvider){
   .state("home", {
     url: "/",
     templateUrl: "/js/views/home.html",
+    controller: "homeCtrl as home"
   })
   .state("register", {
     url: "/register",
@@ -22,7 +23,7 @@ function Router($stateProvider, $locationProvider, $urlRouterProvider){
     controller: "loginCtrl as login",
   })
   .state("usersShow", {
-    url: "/users/:userid",
+    url: "/users/:id",
     templateUrl:  "/js/views/users/show.html",
     controller:   "usersShowCtrl as usersShowCtrl",
   })
