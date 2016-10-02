@@ -21,6 +21,11 @@ function userFactory(API, $resource) {
         'login': {
             method: "POST",
             url: `${API}/login`
+        },
+        'favourite': {
+          method: "POST",
+          url: `${API}/deeds/:id/favourite`, params: { id: '@_id'}
         }
+
     });
 }
