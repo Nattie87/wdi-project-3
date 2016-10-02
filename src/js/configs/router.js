@@ -24,7 +24,7 @@ function Router($stateProvider, $locationProvider, $urlRouterProvider){
   .state("usersShow", {
     url: "/users/:userid",
     templateUrl:  "/js/views/users/show.html",
-    controller:   "usersShowCtrl as usersShow",
+    controller:   "usersShowCtrl as usersShowCtrl",
   })
   .state("deedIndex", {
     url: "/deeds",
@@ -32,7 +32,7 @@ function Router($stateProvider, $locationProvider, $urlRouterProvider){
     controller:   "DeedIndexCtrl as DeedIndexCtrl",
   })
   .state("deedNew", {
-    url: "/deeds/new",
+    url: "/deeds/new/user=:userid",
     templateUrl:  "/js/views/deeds/new.html",
     controller:   "DeedNewCtrl as DeedNewCtrl",
   })
