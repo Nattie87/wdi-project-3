@@ -2,9 +2,11 @@
 <ul>
 
   <div class="taskText" ng-repeat="deed in MyTasksCtrl.deeds track by $index" ui-sref="deedShow({ id: deed._id })">
-    <img class="placeholder" src="https://placeholdit.imgix.net/~text?txtsize=28&bg=0099ff&txtclr=ffffff&txt=img&w=100&h=100&fm=png" />
+    <img ng-if="deed.image" class="placeholder" src="{{ deed.image }}" />
+    <img ng-if="!deed.image" src="https://placeholdit.imgix.net/~text?txtsize=28&bg=0099ff&txtclr=ffffff&txt=img&w=100&h=100&fm=png" />
     DEED: {{ deed.deed }}
     USER: {{ deed.userid.username }}
+
     <!-- <button type="button">Delete</button> -->
     <!-- USER: {{ deed.user.username}} -->
   </div>
