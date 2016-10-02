@@ -26,6 +26,8 @@ router.route('/deeds/:id')
   .get(deeds.show)
   .put(deeds.update)
   .delete(deeds.delete);
+router.route('/deeds/:id/favourite')
+  .post(deeds.favourite);
 
 
 

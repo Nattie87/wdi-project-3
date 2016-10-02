@@ -4,7 +4,8 @@ module.exports = {
   create: deedsCreate,
   show:   deedsShow,
   update: deedsUpdate,
-  delete: deedsDelete
+  delete: deedsDelete,
+  favourite: deedsFavourite
 };
 
 const Deed  = require('../models/deed');
@@ -58,5 +59,14 @@ function deedsDelete(req, res) {
     if (err) return res.status(500).json({ message: "Something went wrong." });
     if (!deed) return res.status(404).json({ message: "Deed not found." });
     return res.status(204).send();
+  });
+}
+
+function deedsFavourite(req, res){
+  Deed.findById(req.params.id, (err, deed) => {
+    if (err) return res.status(500).json({ message: "Something went wrong." });
+    if (!sweet) return res.status(404).json({ message: "Deed not found." });
+    req.user.favouriteDeeds.addToSet(deed._id);
+    req.user.save((err, user) => res.status(201).json());
   });
 }
