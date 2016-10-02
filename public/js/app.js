@@ -49943,6 +49943,80 @@ if (typeof jQuery === 'undefined') {
 "use strict";angular.module("goodVibes").factory("AuthInterceptor",AuthInterceptor);AuthInterceptor.$inject=["API","TokenService"];function AuthInterceptor(API,TokenService){return{request:function request(config){//send token as a header
 var token=TokenService.getToken();if(config.url.indexOf(API)===0&&token){config.headers.Authorization="Bearer "+token;}return config;},response:function response(res){console.log(res);//intercepted response from an http request
 if(res.config.url.indexOf(API)===0&&res.data.token){TokenService.setToken(res.data.token);}return res;}};}
+"use strict";require("../spec_helper");// const User = require("../../models/user");
+describe("authenticiation test",function(){describe("POST /login",function(){it("Should get a 200 response",function(done){this.skip();});});});// / router.route("/barbers")
+// //   .get(barbers.index);
+// // router.route("/barbers/:id")
+// //   .get(barbers.show);
+//
+// require ("../spec_helper");
+//
+// const Barber = require("../../models/barber");
+// const User   = require("../../models/user");
+//
+// let TOKEN;
+//
+// describe("Barber tests", () => {
+//  beforeEach(done => {
+//    Barber.collection.drop();
+//    done();
+//  });
+//
+//  describe("GET /api/barbers", () => {
+//
+//    beforeEach(done => {
+//      const barber = new barber({
+//        name: "Barber Shop",
+//        website: "www.barbershop.com",
+//        image: "http://fillmurray.com/200/300 (11KB)
+//
+// ",
+//        vibe: "like a barbers",
+//        description: "some sort of barber",
+//        lat: "5757585",
+//        lng: "-585757372",
+//        otherServices: "shaving and such"
+//      });
+//      barber.save((err, barber) => {
+//        done();
+//      });
+//
+//      it ("should return a 200 response", done => {
+//        api.get('/api/barbers')
+//          .set("Accept", "application/json")
+//          .expect(200, done);
+//      });
+//      it("should respond with a JSON object", done => {
+//        api.get("/api/barbers");
+//      });
+//
+//      it("should return an object with the following keys", done => {
+//        api.get ("api/barbers")
+//          .set('Accept', "application/json")
+//          .end((err, res) => {
+//            expect(res.body)
+//              .to.have.property("barbers"
+//              .and.be.an("array")
+//              .and.have.property(0)
+//              .and.have.all.keys([
+//                "_id",
+//                "name",
+//                "website",
+//                "image",
+//                "vibe",
+//                "description",
+//                "lat",
+//                "lng",
+//                "otherServices",
+//                "createdAt",
+//                "updatedAt"
+//              ]));
+//              done();
+//          });
+//      });
+//    });
+//  });
+// });
 "use strict";angular.module("goodVibes").service("CurrentUserService",CurrentUserService);CurrentUserService.$inject=["$rootScope","TokenService"];function CurrentUserService($rootScope,TokenService){//will save the user to this service
 var currentUser=TokenService.decodeToken();return{user:currentUser,saveUser:function saveUser(user){currentUser=user;$rootScope.$broadcast("loggedIn");},getUser:function getUser(){return currentUser;},clearUser:function clearUser(){currentUser=null;TokenService.clearToken();$rootScope.$broadcast("loggedOut");}};}
 "use strict";angular.module("goodVibes").factory("Deed",deedFactory);deedFactory.$inject=["$resource","API"];function deedFactory($resource,API){return $resource(API+"/deeds/:id",{id:'@_id'},{'get':{method:'GET'},'save':{method:'POST'},'remove':{method:'DELETE'},'delete':{method:'DELETE'},'query':{method:'GET',isArray:false},'update':{method:'PUT'}});}
@@ -49982,6 +50056,7 @@ User.register({user:vm.user}).$promise.then(function(data){var user=data.user?da
 "use strict";angular.module("goodVibes").config(Router);Router.$inject=["$stateProvider","$locationProvider","$urlRouterProvider"];function Router($stateProvider,$locationProvider,$urlRouterProvider){$locationProvider.html5Mode(true);$stateProvider.state("home",{url:"/",templateUrl:"/js/views/home.html"}).state("register",{url:"/register",templateUrl:"/js/views/register.html",controller:"registerCtrl as register"}).state("login",{url:"/login",templateUrl:"/js/views/login.html",controller:"loginCtrl as login"}).state("usersShow",{url:"/users/:id",templateUrl:"/js/views/users/show.html",controller:"usersShowCtrl as usersShow"}).state("deedIndex",{url:"/deeds",templateUrl:"/js/views/deeds/index.html",controller:"DeedIndexCtrl as DeedIndexCtrl"}).state("deedNew",{url:"/deeds/new",templateUrl:"/js/views/deeds/new.html",controller:"DeedNewCtrl as DeedNewCtrl"}).state("deedShow",{url:"/deeds/:id",templateUrl:"/js/views/deeds/show.html",controller:"DeedShowCtrl as deed"}).state("deedEdit",{url:"/deeds/:id/edit",templateUrl:"/js/views/deeds/edit.html",controller:"DeedEditCtrl as deed"});$urlRouterProvider.otherwise("/");}
 "use strict";angular.module("goodVibes").controller("usersShowCtrl",usersShowCtrl);usersShowCtrl.$inject=["User","$stateParams","$state"];function usersShowCtrl(User,$stateParams,$state){var vm=this;User.query($stateParams,function(data){vm.users=[data.user];console.log("usersShowCtrl.users",vm.users);});vm.goToNewDeed=function(){event.preventDefault();console.log("goToNewDeed");$state.go("deedNew");};}// add edit and delete functions here??
 "use strict";angular.module("goodVibes").controller("DeedShowCtrl",DeedShowCtrl);DeedShowCtrl.$inject=["Deed","$stateParams","$state"];function DeedShowCtrl(Deed,$stateParams,$state){var vm=this;Deed.get($stateParams,function(data){vm.deed=data.deed;});vm.deedDelete=function(){Deed.delete($stateParams).$promise.then(function(data){$state.go("deedIndex");});};}
+'use strict';process.env.NODE_ENV='test';var chai=require("chai");global.should=chai.should();global.expect=chai.expect;var supertest=require('supertest');var app=require('../index');global.api=supertest(app);
 "use strict";angular.module("goodVibes").service("TokenService",TokenService);//service is like an actual constructor function
 //when injected it's newed, instantiated as new
 TokenService.$inject=["$window","jwtHelper"];function TokenService($window,jwtHelper){var self=this;self.setToken=setToken;self.getToken=getToken;self.decodeToken=decodeToken;self.clearToken=clearToken;function setToken(token){return $window.localStorage.setItem("auth-token",token);}function getToken(){return $window.localStorage.getItem("auth-token");}function decodeToken(){var token=self.getToken();return token?jwtHelper.decodeToken(token):null;}function clearToken(){return $window.localStorage.removeItem("auth-token");}}
