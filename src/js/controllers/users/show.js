@@ -6,7 +6,7 @@ usersShowCtrl.$inject = ["User", "Deed", "$stateParams", "$state"];
 function usersShowCtrl(User, Deed, $stateParams, $state){
   const vm   = this;
 
-  User.query($stateParams,data => {
+  User.get($stateParams, data => {
     vm.user = data.user;
   });
 
@@ -14,8 +14,6 @@ function usersShowCtrl(User, Deed, $stateParams, $state){
     .$promise
     .then(data => {
       vm.deeds = data.deeds;
-    });
-
+    })
+    .catch(console.log);
 }
-
- // add edit and delete functions here??

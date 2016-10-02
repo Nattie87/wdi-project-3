@@ -13,20 +13,6 @@ function mainCtrl($rootScope, CurrentUserService, $state, $stateParams) {
     CurrentUserService.clearUser();
   };
 
-  vm.usersShow = () => {
-
-      $stateParams.userid = vm.user.id;
-      $state.go("usersShow", $stateParams);
-
-  };
-
-  vm.showAllDeeds = () => {
-    console.log("showAllDeeds");
-    event.preventDefault();
-    $state.go("deedIndex");
-  };
-
-
   $rootScope.$on("loggedIn", () => {
     vm.user = CurrentUserService.getUser();
     console.log("logged in", vm.user);

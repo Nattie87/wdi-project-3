@@ -9,7 +9,7 @@ function MyTasksCtrl(Deed, CurrentUserService){
 
   console.log(vm.user);
 
-  Deed.query_for_user({ userid: vm.user.id })
+  Deed.query_for_user({ id: vm.user.id })
     .$promise
     .then(data => {
       vm.deeds = data.deeds;
