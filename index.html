@@ -36,7 +36,10 @@
                 <a ng-click="main.usersShow()">hello {{ main.user.username }} {{ main.user._id }}</a>
               </li>
               <li ng-show="main.user">
-                <a ng-click="main.showAllDeeds()">I want to help</a>
+                <a ui-sref="myTasks">My tasks</a>
+              </li>
+              <li ng-show="main.user">
+                <a ng-click="main.showAllDeeds()">All tasks</a>
               </li>
               <li ng-show="main.user">
                 <a ng-click="main.logout()">logout</a>
