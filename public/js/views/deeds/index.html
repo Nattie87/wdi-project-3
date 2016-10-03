@@ -1,12 +1,21 @@
 <h1>Tasks That Need Help:</h1>
 <ul>
 
-  <div class="taskText" ng-repeat="deed in DeedIndexCtrl.deeds track by $index" ui-sref="deedShow({ id: deed._id })">
-    <img class="placeholder" src="https://placeholdit.imgix.net/~text?txtsize=28&bg=0099ff&txtclr=ffffff&txt=img&w=100&h=100&fm=png" />
-    DEED: {{ deed.deed }}
-    USER: {{ deed.userid.username }}
-    <!-- <button type="button">Delete</button> -->
-    <!-- USER: {{ deed.user.username}} -->
+
+  <div ng-hide="deed.userid.username===DeedIndexCtrl.user.username" class="taskText" ng-repeat="deed in DeedIndexCtrl.deeds track by $index" >
+    <div ui-sref="deedShow({ id: deed._id })">
+
+
+    <img class="deed-img" class="placeholder" src="https://placeholdit.imgix.net/~text?txtsize=28&bg=0099ff&txtclr=ffffff&txt=img&w=100&h=100&fm=png" />
+    <li class="deed-li">DEED: {{ deed.deed }}</li>
+    <li class="deed-li">USER: {{ deed.userid.username }}</li>
+    <li class="deed-li">LOCATION: {{ deed.location }}</li>
+    <!-- FAVOURITE: {{  }} -->
+    </div>
+
+    <button class="contact" type="button">Contact</button>
+
+    <!-- <button ng-click="deed.userid.favourite({ id: deed.id, user: deed.userid })" type="button">Favourite</button> -->
   </div>
 
 </ul>
