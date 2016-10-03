@@ -7,7 +7,10 @@ const userSchema = new mongoose.Schema({
   firstName:    { type: String, trim: true },
   lastName:     { type: String, trim: true },
   image:        { type: String, trim: true },
+  about:        { type: String, trim: true },
   email:        { type: String, unique: true, trim: true, required: true },
+  myDeed:       { type: String, trim: true },
+  location:     { type: String, trim: true },
   passwordHash: { type: String, required: true },
   favouriteDeeds: [{ type: mongoose.Schema.Types.ObjectId, ref: "Deed" }]
 });

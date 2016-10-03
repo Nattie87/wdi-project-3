@@ -12,6 +12,9 @@ function userFactory(API, $resource) {
             method: "GET",
             isArray: false
         },
+        'update': {
+          method: "PUT"
+        },
         //just adding another custom method to user factory and this case give it specific url
         //these will overwrite url in resource on top
         'register': {
