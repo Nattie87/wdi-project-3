@@ -6,7 +6,12 @@
 @import "deeds";
 @import "my-tasks";
 
+
 ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
   li {
     a {
       &:hover {
@@ -19,5 +24,18 @@ ul {
 #inputText {
   height: 100%;
   width: 100%;
-  
+}
+
+.box {
+  margin: 0 auto;
+  position: relative;
+  width: 350px;
+  height: 350px;
+
+  .tile {
+    text-align: center;
+    position: absolute;
+    width: 350px;
+    height: 350px;
+  }
 }

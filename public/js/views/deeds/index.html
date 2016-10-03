@@ -1,4 +1,14 @@
 <h1>Tasks That Need Help:</h1>
+
+<ul class="box">
+  <li ng-repeat="deed in DeedIndexCtrl.deeds track by $index">
+    <ul class="tile">
+      <li ng-swipe-left="DeedIndexCtrl.swipedLeft()" ng-swipe-right="DeedIndexCtrl.swipedRight()"><img class="placeholder" src="https://placeholdit.imgix.net/~text?txtsize=28&bg=0099ff&txtclr=ffffff&txt=img&w=350&h=350&fm=png" /></li>
+    </ul>
+  </li>
+</ul>
+
+<!-- <h1>Tasks That Need Help:</h1>
 <ul>
 
 
@@ -6,11 +16,10 @@
     <div ui-sref="deedShow({ id: deed._id })">
 
 
-    <li><img class="placeholder" src="https://placeholdit.imgix.net/~text?txtsize=28&bg=0099ff&txtclr=ffffff&txt=img&w=100&h=100&fm=png" /></li>
+    <li><img class="placeholder" src="https://placeholdit.imgix.net/~text?txtsize=28&bg=0099ff&txtclr=ffffff&txt=img&w=350&h=350&fm=png" /></li>
     <li class="deed-li">DEED: {{ deed.deed }}</li>
     <li class="deed-li">USER: {{ deed.userid.username }}</li>
     <li class="deed-li">LOCATION: {{ deed.location }}</li>
-    <!-- FAVOURITE: {{  }} -->
     </div>
 
     <button class="contact" type="button" data-toggle="modal" data-target="#myModal">Contact</button>
@@ -53,7 +62,7 @@
     <button ng-click="deed.userid.favourite({ id: deed.id, user: deed.userid })" type="button">Favourite</button>
   </div>
 
-</ul>
+</ul> -->
 <!--
 <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
   Launch demo modal
