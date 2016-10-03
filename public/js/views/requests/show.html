@@ -1,0 +1,10 @@
+<em>The request and the messages inside</em>
+
+<ul>
+  <li ng-repeat="message in request.request.messages track by $index">
+    <div>
+      <img ng-src="{{ message.sender.image }}">
+      <p>{{ message.body }}</p>
+    </div>
+  </li>
+</ul>
