@@ -15,6 +15,7 @@ router.route('/users')
 router.route('/users/:id')
   .get(users.show)
   .put(users.update)
+  .patch(users.update)
   .delete(users.delete);
 router.route("/users/:id/deeds")
   .get(deeds.indexForUser);

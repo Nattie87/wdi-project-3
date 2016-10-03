@@ -1,6 +1,6 @@
 angular
-  .module("goodVibes")
-  .config(Router);
+.module("goodVibes")
+.config(Router);
 
 Router.$inject = ["$stateProvider", "$locationProvider", "$urlRouterProvider"];
 function Router($stateProvider, $locationProvider, $urlRouterProvider){
@@ -26,6 +26,11 @@ function Router($stateProvider, $locationProvider, $urlRouterProvider){
     url: "/users/:id",
     templateUrl:  "/js/views/users/show.html",
     controller:   "usersShowCtrl as usersShowCtrl",
+  })
+  .state('usersEdit', {
+    url: "/users/:id/edit",
+    templateUrl: "/js/views/users/edit.html",
+    controller: "usersEditCtrl as usersEditCtrl"
   })
   .state("myTasks", {
     url: "/mytasks/",

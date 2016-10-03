@@ -10,6 +10,15 @@ function usersShowCtrl(User, Deed, $stateParams, $state){
     vm.user = data.user;
   });
 
+  vm.userDelete = () => {
+    User
+      .delete($stateParams)
+      .$promise
+      .then(data => {
+        $state.go("usersShowCtrl");
+      });
+  };
+
   Deed.query_for_user($stateParams)
     .$promise
     .then(data => {
