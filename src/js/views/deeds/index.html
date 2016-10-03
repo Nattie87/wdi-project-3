@@ -6,13 +6,14 @@
     <div ui-sref="deedShow({ id: deed._id })">
 
 
-    <img class="placeholder" src="https://placeholdit.imgix.net/~text?txtsize=28&bg=0099ff&txtclr=ffffff&txt=img&w=100&h=100&fm=png" />
-    DEED: {{ deed.deed }}
-    USER: {{ deed.userid.username }}
+    <img class="deed-img" class="placeholder" src="https://placeholdit.imgix.net/~text?txtsize=28&bg=0099ff&txtclr=ffffff&txt=img&w=100&h=100&fm=png" />
+    <li class="deed-li">DEED: {{ deed.deed }}</li>
+    <li class="deed-li">USER: {{ deed.userid.username }}</li>
+    <li class="deed-li">LOCATION: {{ deed.location }}</li>
     <!-- FAVOURITE: {{  }} -->
     </div>
 
-    <button type="button">Contact</button>
+    <button class="contact" type="button">Contact</button>
 
     <!-- <button ng-click="deed.userid.favourite({ id: deed.id, user: deed.userid })" type="button">Favourite</button> -->
   </div>
