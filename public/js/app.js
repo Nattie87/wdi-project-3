@@ -50696,7 +50696,9 @@ var currentUser=TokenService.decodeToken();return{user:currentUser,saveUser:func
 //   });
 // }
 "use strict";
-"use strict";angular.module("goodVibes").controller("DeedIndexCtrl",DeedIndexCtrl);DeedIndexCtrl.$inject=["Deed","$stateParams","CurrentUserService"];function DeedIndexCtrl(Deed,$stateParams,CurrentUserService){var vm=this;vm.user=CurrentUserService.getUser();vm.swipedLeft=swipedLeft;vm.swipedRight=swipedRight;Deed.query($stateParams).$promise.then(function(data){vm.deeds=data.deeds;});function swipedLeft(){console.log("swiped left");}function swipedRight(){console.log("swiped right");}vm.favourite=function(deed){Deed.favourite({id:deed._id},function(data){console.log(data);});};}
+"use strict";angular.module("goodVibes").controller("DeedIndexCtrl",DeedIndexCtrl);DeedIndexCtrl.$inject=["Deed","$stateParams","CurrentUserService"];function DeedIndexCtrl(Deed,$stateParams,CurrentUserService){var vm=this;vm.user=CurrentUserService.getUser();vm.swipedLeft=swipedLeft;vm.swipedRight=swipedRight;Deed.query($stateParams).$promise.then(function(data){vm.deeds=data.deeds;});function swipedLeft(deed){deed.animation="slideOutLeft";}function swipedRight(deed){deed.animation="slideOutRight";// make request
+// /deeds/:id/requests
+}vm.favourite=function(deed){Deed.favourite({id:deed._id},function(data){console.log(data);});};}
 "use strict";//do this because we want to affect the httpProvider
 angular.module("goodVibes")//config has to be used because it is loaded right at the start
 .config(setUpInterceptor);setUpInterceptor.$inject=["$httpProvider"];function setUpInterceptor($httpProvider){return $httpProvider.interceptors.push("AuthInterceptor");}

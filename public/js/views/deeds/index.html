@@ -2,69 +2,65 @@
 
 <ul class="box">
   <li ng-repeat="deed in DeedIndexCtrl.deeds track by $index">
-    <ul class="tile">
-      <li ng-swipe-left="DeedIndexCtrl.swipedLeft()" ng-swipe-right="DeedIndexCtrl.swipedRight()"><img class="placeholder" src="https://placeholdit.imgix.net/~text?txtsize=28&bg=0099ff&txtclr=ffffff&txt=img&w=350&h=350&fm=png" /></li>
-    </ul>
-  </li>
-</ul>
-
-<!-- <h1>Tasks That Need Help:</h1>
-<ul>
-
-
-  <div ng-hide="deed.userid.username===DeedIndexCtrl.user.username" class="taskText" ng-repeat="deed in DeedIndexCtrl.deeds track by $index" >
-
-    <li><img class="placeholder" src="https://placeholdit.imgix.net/~text?txtsize=28&bg=0099ff&txtclr=ffffff&txt=img&w=350&h=350&fm=png" /></li>
-
-    <div ui-sref="deedShow({ id: deed._id })">
-    <img class="deed-img" class="placeholder" src="https://placeholdit.imgix.net/~text?txtsize=28&bg=0099ff&txtclr=ffffff&txt=img&w=100&h=100&fm=png" />
-
-    <li class="deed-li">DEED: {{ deed.deed }}</li>
-    <li class="deed-li">USER: {{ deed.userid.username }}</li>
-    <li class="deed-li">LOCATION: {{ deed.location }}</li>
-    </div>
-
-    <button class="contact" type="button" data-toggle="modal" data-target="#myModal">Contact</button>
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="myModalLabel">get in touch</h4>
-          </div>
-          <div class="modal-body">
-            <form class="form-horizontal" role="form">
-                  <div class="form-group">
-
-                    <div class="col-sm-10">
-                        <textarea type="text" class="form-control"
-                        id="inputText" placeholder="Message"/></textarea>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                  </div>
-                  <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10">
-                    </div>
-                  </div>
-                </form>
-
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Send</button>
-          </div>
+    <div class="tile animated" ng-class="deed.animation" ng-swipe-left="DeedIndexCtrl.swipedLeft(deed)" ng-swipe-right="DeedIndexCtrl.swipedRight(deed)">
+      <div>
+        <img class="placeholder" ng-src="{{ deed.image }}" />
+        <div class="info">
+          <ul>
+            <li ui-sref="usersShow({ id: deed.userid._id })"><img ng-src="{{ deed.userid.image }}"/></li>
+            <li class="title">{{deed.deed }}</li>
+            <li class="right" ng-click="DeedIndexCtrl.swipedLeft(deed)"><i class="no fa fa-thumbs-o-down" aria-hidden="true"></i></li>
+            <li class="right" ng-click="DeedIndexCtrl.swipedRight(deed)"><i class="yes fa fa-thumbs-o-up" aria-hidden="true"></i></li>
+          </ul>
         </div>
       </div>
     </div>
-    <button ng-click="deed.userid.favourite({ id: deed.id, user: deed.userid })" type="button">Favourite</button>
+  </li>
+</ul>
+
+<!-- <button class="contact" type="button" data-toggle="modal" data-target="#myModal">Contact</button>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal" role="form">
+              <div class="form-group">
+
+                <div class="col-sm-10">
+                    <textarea type="text" class="form-control"
+                    id="inputText" placeholder="Message"/></textarea>
+                </div>
+              </div>
+              <div class="form-group">
+              </div>
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                </div>
+              </div>
+            </form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Send</button>
+      </div>
+    </div>
+  </div>
+</div>
+<button ng-click="deed.userid.favourite({ id: deed.id, user: deed.userid })" type="button">Favourite</button>
+</div>
+
+</ul>
 
 <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-  Launch demo modal
-</button> -->
-
-<!-- Modal -->
+Launch demo modal
+</button>
+ Modal -->

@@ -16,12 +16,14 @@ function DeedIndexCtrl(Deed, $stateParams, CurrentUserService){
       vm.deeds = data.deeds;
     });
 
-    function swipedLeft() {
-      console.log("swiped left");
+    function swipedLeft(deed) {
+      deed.animation = "slideOutLeft";
     }
 
-    function swipedRight() {
-      console.log("swiped right");
+    function swipedRight(deed) {
+      deed.animation = "slideOutRight";
+      // make request
+      // /deeds/:id/requests
     }
 
     vm.favourite = (deed) => {

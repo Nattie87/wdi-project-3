@@ -24,6 +24,8 @@
     "angular-resource": "~1.5.7",
     "angular-jwt": "^0.0.9",
     "bootstrap": "^3.3.7",
-    "angular-touch": "^1.5.8"
+    "angular-touch": "^1.5.8",
+    "animate.css": "^3.5.2",
+    "font-awesome": "^4.6.3"
   }
 }
