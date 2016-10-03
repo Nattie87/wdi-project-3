@@ -7,13 +7,13 @@ function DeedEditCtrl(Deed, $stateParams, $state){
   const vm = this;
 
   Deed.get($stateParams, data => {
-    vm.Deed = data.Deed;
+    vm.deed = data.deed;
   });
 
   vm.submit = () => {
-    console.log("vm.deed", vm.Deed);
+    console.log("vm.deed", vm.deed);
     Deed
-      .update($stateParams, { Deed: vm.Deed })
+      .update($stateParams, { deed: vm.deed })
       .$promise
       .then(data => {
         $state.go("deedShow", $stateParams);

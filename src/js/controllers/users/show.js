@@ -6,9 +6,12 @@ usersShowCtrl.$inject = ["User", "Deed", "$stateParams", "$state"];
 function usersShowCtrl(User, Deed, $stateParams, $state){
   const vm   = this;
 
+
   User.get($stateParams, data => {
     vm.user = data.user;
   });
+
+
 
   vm.userDelete = () => {
     User

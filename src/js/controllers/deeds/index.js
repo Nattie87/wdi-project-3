@@ -13,4 +13,10 @@ function DeedIndexCtrl(Deed, $stateParams, CurrentUserService){
     .then(data => {
       vm.deeds = data.deeds;
     });
+
+    vm.favourite = (deed) => {
+    Deed.favourite({ id: deed._id }, data => {
+      console.log(data);
+    });
+  };
 }

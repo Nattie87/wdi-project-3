@@ -3,9 +3,8 @@
 
 
   <div ng-hide="deed.userid.username===DeedIndexCtrl.user.username" class="taskText" ng-repeat="deed in DeedIndexCtrl.deeds track by $index" >
+
     <div ui-sref="deedShow({ id: deed._id })">
-
-
     <img class="deed-img" class="placeholder" src="https://placeholdit.imgix.net/~text?txtsize=28&bg=0099ff&txtclr=ffffff&txt=img&w=100&h=100&fm=png" />
     <li class="deed-li">DEED: {{ deed.deed }}</li>
     <li class="deed-li">USER: {{ deed.userid.username }}</li>
@@ -16,6 +15,7 @@
     <button class="contact" type="button">Contact</button>
 
     <button ng-click="deed.userid.favourite({ id: deed.id, user: deed.userid })" type="button">Favourite</button>
-  </div>
 
+    <!-- ng-click="sweetsIndex.favourite(sweet)" -->
+  </div>
 </ul>

@@ -11,6 +11,7 @@ function DeedShowCtrl(Deed, $stateParams, $state){
   });
 
   vm.deedDelete = () => {
+    console.log("deleting deed");
     Deed
       .delete($stateParams)
       .$promise
