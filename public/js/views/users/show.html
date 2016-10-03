@@ -1,0 +1,17 @@
+<h1>My Profile</h1>
+<div class="media">
+  <div class="media-left" >
+    <a ui-sref="userShow({ id: userShow._id })">
+      <img id="profilePic" class="media-object" ng-src="{{ usersShowCtrl.user.image }}">
+    </a>
+  </div>
+  <div class="media-body">
+    <h4 class="media-heading"> {{ usersShowCtrl.user.username }} </h4>
+    <p>{{ usersShowCtrl.user.email }}</p>
+    <p>{{ usersShowCtrl.user.firstName }}</p>
+    <p>{{ usersShowCtrl.user.lastName }}</p>
+    <p>{{ usersShowCtrl.user.location }}</p>
+    <p>{{ usersShowCtrl.user.about }}</p>
+    <li><a class="btn btn-default" ui-sref="usersEdit({id: usersEdit.user._id})">Edit</a></li>
+    </div>
+  </div>
