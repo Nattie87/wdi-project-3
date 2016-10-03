@@ -1,11 +1,10 @@
 module.exports = {
-  index:  deedsIndex,
+  index:        deedsIndex,
   indexForUser: deedsIndexForUser,
-  create: deedsCreate,
-  show:   deedsShow,
-  update: deedsUpdate,
-  delete: deedsDelete,
-  favourite: deedsFavourite
+  create:       deedsCreate,
+  show:         deedsShow,
+  update:       deedsUpdate,
+  delete:       deedsDelete
 };
 
 const Deed  = require('../models/deed');
@@ -39,11 +38,21 @@ function deedsCreate(req, res) {
 }
 
 function deedsShow(req, res) {
-  Deed.findById(req.params.id, (err, deed) => {
-    if (err) return res.status(500).json({ message: "Something went wrong." });
-    if (!deed) return res.status(404).json({ message: "Deed not found." });
-    return res.status(200).json({ deed });
-  });
+  Deed
+    .findById(req.params.id)
+    .populate({
+      path: "requests",
+      model: "Request",
+      populate: {
+        path: "user",
+        model: "User"
+      }
+    })
+    .exec((err, deed) => {
+      if (err) return res.status(500).json({ message: "Something went wrong." });
+      if (!deed) return res.status(404).json({ message: "Deed not found." });
+      return res.status(200).json({ deed });
+    });
 }
 
 function deedsUpdate(req, res) {
@@ -59,14 +68,5 @@ function deedsDelete(req, res) {
     if (err) return res.status(500).json({ message: "Something went wrong." });
     if (!deed) return res.status(404).json({ message: "Deed not found." });
     return res.status(204).send();
-  });
-}
-
-function deedsFavourite(req, res){
-  Deed.findById(req.params.id, (err, deed) => {
-    if (err) return res.status(500).json({ message: "Something went wrong." });
-    if (!deed) return res.status(404).json({ message: "Deed not found." });
-    req.user.favouriteDeeds.addToSet(deed._id);
-    req.user.save((err, user) => res.status(201).json());
   });
 }

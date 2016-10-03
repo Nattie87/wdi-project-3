@@ -4,6 +4,7 @@ const router   = express.Router();
 const authentications = require("../controllers/authentications");
 const users           = require("../controllers/users");
 const deeds           = require("../controllers/deeds");
+const requests        = require("../controllers/requests");
 
 router.route("/register")
   .post(authentications.register);
@@ -27,9 +28,9 @@ router.route('/deeds/:id')
   .get(deeds.show)
   .put(deeds.update)
   .delete(deeds.delete);
-router.route('/deeds/:id/favourite')
-  .post(deeds.favourite);
-
-
+router.route('/deeds/:id/requests')
+  .post(requests.create);
+router.route('/requests/:id')
+  .get(requests.show);
 
 module.exports = router;
