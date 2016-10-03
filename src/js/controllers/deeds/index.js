@@ -16,7 +16,6 @@ function DeedIndexCtrl(Deed, $stateParams, CurrentUserService){
       vm.deeds = data.deeds;
     });
 
-
     function swipedLeft() {
       console.log("swiped left");
     }
@@ -24,5 +23,11 @@ function DeedIndexCtrl(Deed, $stateParams, CurrentUserService){
     function swipedRight() {
       console.log("swiped right");
     }
+
+    vm.favourite = (deed) => {
+    Deed.favourite({ id: deed._id }, data => {
+      console.log(data);
+    });
+  };
 
 }

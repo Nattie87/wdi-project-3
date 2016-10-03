@@ -8,9 +8,12 @@ function usersEditCtrl(User, $stateParams, $state){
 
   User.get($stateParams, data => {
     vm.user = data.user;
+    console.log("vm.user", vm.user);
   });
 
+
   vm.submit = () => {
+    console.log("submit edit");
     User
       .update($stateParams, { user: vm.user })
       .$promise

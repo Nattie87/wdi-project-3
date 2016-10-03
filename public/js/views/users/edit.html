@@ -1,5 +1,5 @@
 <h1>Change Your Details</h1>
-<form ng-submit="user.submit()">
+<form ng-submit="usersEditCtrl.submit()">
   <div class="form-group">
     <input class="form-control" type="text" name="username" ng-model="usersEditCtrl.user.username" placeholder="{{ usersShowCtrl.user.username }}">
   </div>
@@ -22,5 +22,4 @@
     <input class="form-control" type="text" name="location" ng-model="usersEditCtrl.user.location" placeholder="Location">
   </div>
   <input class="btn btn-primary" type="submit" value="Submit"/>
-  <li><a class="btn btn-default" ng-click="usersShowCtrl.userDelete()">Delete</a></li>
 </form>
