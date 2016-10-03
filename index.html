@@ -35,10 +35,13 @@
               <a class='nav-text' class='nav-text' ui-sref="login">login</a>
             </li>
             <li ng-show="main.user">
-              <a class='nav-text' ui-sref="deedIndex">deeds</a>
+              <a class='nav-text' ui-sref="deedIndex">Deeds</a>
             </li>
             <li ng-show="main.user">
-              <a class='nav-text' ui-sref="myTasks">my tasks</a>
+              <a class='nav-text' ui-sref="myDeeds">My Deeds</a>
+            </li>
+            <li ng-show="main.user">
+              <a class='nav-text' ui-sref="requestsIndex">Requests</a>
             </li>
             <li ng-show="main.user">
               <a class='nav-text' ui-sref="usersShow({ id: main.user.id })">hello {{ main.user.username }}</a>

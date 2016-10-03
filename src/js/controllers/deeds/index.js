@@ -2,12 +2,13 @@ angular
   .module("goodVibes")
   .controller("DeedIndexCtrl", DeedIndexCtrl);
 
-DeedIndexCtrl.$inject = ["Deed", "$stateParams", "CurrentUserService"];
-function DeedIndexCtrl(Deed, $stateParams, CurrentUserService){
-  const vm = this;
-  vm.user = CurrentUserService.getUser();
-  vm.swipedLeft  = swipedLeft;
-  vm.swipedRight = swipedRight;
+DeedIndexCtrl.$inject = ["Deed", "$stateParams", "CurrentUserService", "Request"];
+function DeedIndexCtrl(Deed, $stateParams, CurrentUserService, Request){
+  const vm         = this;
+  vm.user          = CurrentUserService.getUser();
+  vm.swipedLeft    = swipedLeft;
+  vm.swipedRight   = swipedRight;
+  vm.submitMessage = submitMessage;
 
   Deed
     .query($stateParams)
@@ -22,14 +23,22 @@ function DeedIndexCtrl(Deed, $stateParams, CurrentUserService){
 
     function swipedRight(deed) {
       deed.animation = "slideOutRight";
-      // make request
-      // /deeds/:id/requests
+      vm.deed = deed;
+      $('#deedModal').modal('show');
     }
 
-    vm.favourite = (deed) => {
-    Deed.favourite({ id: deed._id }, data => {
-      console.log(data);
-    });
-  };
+    function submitMessage(){
+      Request.save({
+        deed: vm.deed._id,
+        messages: [{
+          body: vm.message.body
+        }]
+      })
+      .$promise
+      .then(data => {
+        $('#deedModal').modal('hide');
+      })
+      .catch(console.log);
+    }
 
 }

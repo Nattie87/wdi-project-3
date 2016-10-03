@@ -5,11 +5,3 @@
   <li><a class="btn btn-default" ui-sref="deedEdit({id: deed.deed._id})">Edit</a></li>
   <li><a class="btn btn-default" ng-click="deed.deedDelete()">Delete</a></li>
 </ul>
-
-<h2>People interested in helping...</h2>
-<em>People who have made requests to help...</em>
-<ul>
-  <li ng-repeat="request in deed.deed.requests track by $index" ui-sref="requestsShow({ id: request._id })">
-     <img ng-src="{{ request.user.image }}" alt="request.user.username">
-  </li>
-</ul>

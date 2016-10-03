@@ -1,7 +1,15 @@
 <em>The request and the messages inside</em>
 
+<form ng-submit="RequestsShowCtrl.reply()">
+  <div class="form-group">
+    <textarea type="text" class="form-control"
+    id="inputText" placeholder="Message" ng-model="RequestsShowCtrl.message.body"></textarea>
+  </div>
+  <input type="submit" class="btn btn-primary" value="Send">
+</form>
+
 <ul>
-  <li ng-repeat="message in request.request.messages track by $index">
+  <li ng-repeat="message in RequestsShowCtrl.request.messages track by $index">
     <div>
       <img ng-src="{{ message.sender.image }}">
       <p>{{ message.body }}</p>

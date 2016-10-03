@@ -62,14 +62,16 @@ function createDeeds(done){
     if (err) return done(err);
 
     Deed.create({
-      userid:   users[0]._id,
+      user:   users[0]._id,
       deed:     "Need some help",
+      image:    "https://source.unsplash.com/category/nature/400x400",
       location: "London",
     }, (err, deed) => {
       if (err) return done(err);
 
       const request = new Request({
-        user: users[1]._id,
+        sender: users[1]._id,
+        receiver: deed.user,
         deed: deed._id,
         messages: [
           {

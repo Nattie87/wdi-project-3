@@ -1,0 +1,16 @@
+<h1>Tasks I Want Done:</h1>
+<button ui-sref="deedNew" type="button" class="btn btn-primary">Create Deed</button>
+
+<h2>SHOULD NOT STACK LIKE THE OTHER INDEX PAGE</h2>
+
+<ul class="box">
+  <li ng-repeat="deed in MyDeedsCtrl.deeds track by $index">
+    <div class="tile animated" ng-class="deed.animation" ng-swipe-left="DeedIndexCtrl.swipedLeft(deed)" ng-swipe-right="DeedIndexCtrl.swipedRight(deed)">
+      <div>
+        <img class="placeholder" ng-src="{{ deed.image }}" />
+        <div class="info">
+        </div>
+      </div>
+    </div>
+  </li>
+</ul>

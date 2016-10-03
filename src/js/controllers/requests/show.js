@@ -6,7 +6,20 @@ RequestsShowCtrl.$inject = ["Request", "$stateParams", "$state"];
 function RequestsShowCtrl(Request, $stateParams, $state){
   const vm = this;
 
+  vm.reply = reply;
+
   Request.get($stateParams, data => {
     vm.request = data.request;
   });
+
+  function reply(){
+    Request
+      .reply({ id: vm.request._id }, { message: vm.message })
+      .$promise
+      .then(data => {
+        console.log(data.request);
+        vm.request = data.request;
+      })
+      .catch(console.log);
+  }
 }
