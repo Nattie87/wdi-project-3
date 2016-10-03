@@ -11,6 +11,7 @@ function DeedEditCtrl(Deed, $stateParams, $state){
   });
 
   vm.submit = () => {
+    console.log("vm.deed", vm.Deed);
     Deed
       .update($stateParams, { Deed: vm.Deed })
       .$promise

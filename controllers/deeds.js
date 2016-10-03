@@ -65,7 +65,7 @@ function deedsDelete(req, res) {
 function deedsFavourite(req, res){
   Deed.findById(req.params.id, (err, deed) => {
     if (err) return res.status(500).json({ message: "Something went wrong." });
-    if (!sweet) return res.status(404).json({ message: "Deed not found." });
+    if (!deed) return res.status(404).json({ message: "Deed not found." });
     req.user.favouriteDeeds.addToSet(deed._id);
     req.user.save((err, user) => res.status(201).json());
   });

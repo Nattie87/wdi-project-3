@@ -11,6 +11,7 @@ function DeedNewCtrl(Deed, $state, CurrentUserService){
   // Must be wrapped in a function so that it is not invoked immediately
   // $save is an instance method
   vm.submit = () => {
+    // assigning a value to the user associated to that deed
     vm.deed.userid = vm.user.id;
     console.log("DeedNewCtrl.deed", vm.deed);
     Deed
@@ -21,4 +22,5 @@ function DeedNewCtrl(Deed, $state, CurrentUserService){
         $state.go("myTasks");
       });
   };
+
 }
