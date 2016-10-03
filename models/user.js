@@ -12,7 +12,7 @@ const userSchema = new mongoose.Schema({
   myDeed:       { type: String, trim: true },
   location:     { type: String, trim: true },
   passwordHash: { type: String, required: true },
-  favouriteDeeds: [{ type: mongoose.Schema.Types.ObjectId, ref: "Deed" }]
+  favouriteDeeds: [{ type: mongoose.Schema.Types.ObjectId, ref: "Deed" }],
 });
 
 userSchema
