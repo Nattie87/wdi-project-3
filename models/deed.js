@@ -4,9 +4,10 @@ const deedSchema = new mongoose.Schema({
   deed:       { type: String, unique: true, trim: true, required: true },
   image:      { type: String, trim: true },
   location:   { type: String, trim: true },
-  userid:     {type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true } 
+  userid:     { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+  requests:   [{ type: mongoose.Schema.Types.ObjectId, ref: 'Request' }]
 }, {
-timestamps: true
+  timestamps: true
 });
 
 module.exports = mongoose.model("Deed", deedSchema);

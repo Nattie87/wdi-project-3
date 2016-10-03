@@ -15,8 +15,7 @@ function mainCtrl($rootScope, CurrentUserService, $state, $stateParams) {
 
   $rootScope.$on("loggedIn", () => {
     vm.user = CurrentUserService.getUser();
-    console.log("logged in", vm.user);
-    // $state.go("usersIndex");
+    $state.go("deedIndex");
   });
 
   $rootScope.$on("loggedOut", () => {

@@ -18,7 +18,6 @@ function loginCtrl(User, CurrentUserService, $window, $state) {
       if (user) {
         user.id = user._id;
         CurrentUserService.saveUser(user);
-        $state.go("home");
       }
       console.log("login controller", data);
     });
