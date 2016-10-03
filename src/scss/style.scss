@@ -2,6 +2,9 @@
 @import "body";
 @import "modules/navbar";
 @import "profile-page";
+@import "landing-page";
+@import "deeds";
+@import "my-tasks";
 
 ul {
   li {
@@ -11,35 +14,4 @@ ul {
       }
     }
   }
-}
-
-.myTasks {
-  width: 300px;
-  height: 100px;
-  padding-top: 25px;
-  padding-bottom: 25px;
-  border: 1px solid black;
-}
-
-.placeholder {
-  margin-top: 0px;
-  margin-bottom: 10px;
-}
-
-li {
-  list-style-type: none;
-}
-
-.deed-img {
-  float: left;
-}
-
-.deed-li {
-  line-height: 240%;
-  padding-left: 11%;
-}
-
-.contact {
-  margin-top: 1%;
-  margin-left: 1.5%;
 }
