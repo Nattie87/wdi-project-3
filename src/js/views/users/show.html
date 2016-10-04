@@ -1,19 +1,41 @@
-<h1>My Profile</h1>
-<div class="media">
-  <div class="media-left" >
-    <a ui-sref="usersShow({ id: usersShow.user._id })">
-      <img id="profilePic" class="media-object" ng-src="{{ usersShowCtrl.user.image }}">
-    </a>
-  </div>
-  <div class="media-body">
-    <h4 class="media-heading"> {{ usersShowCtrl.user.username }} </h4>
-    <p>{{ usersShowCtrl.user.email }}</p>
-    <p>{{ usersShowCtrl.user.firstName }}</p>
-    <p>{{ usersShowCtrl.user.lastName }}</p>
-    <p>{{ usersShowCtrl.user.location }}</p>
-    <p>{{ usersShowCtrl.user.about }}</p>
-    <!-- <li><a class="btn btn-default" ui-sref="usersEdit({id: usersEdit.user._id})">Edit</a></li> -->
-    <li><a class="btn btn-default" ui-sref="usersEdit({id: usersShowCtrl.user._id})">Edit</a></li>
-    <li><a class="btn btn-default" ng-click="usersShowCtrl.userDelete()">Delete</a></li>
+<div id="profile-container" class="container">
+  <h1>My Profile</h1>
+
+  <div class="media">
+    <div class="media-left" >
+
+      <div class="profile-picture">
+        <a ui-sref="usersShow({ id: usersShow.user._id })">
+
+          <div id="profile-row-1" class="row">
+            <img id="profilePic" class="media-object" ng-src="{{ usersShowCtrl.user.image }}">
+          </a>
+        </div>
+
+      </div>
+      <div class="media-body">
+        <h4 class="media-heading"> {{ usersShowCtrl.user.username }} </h4>
+      </div>
+
+      <ul>
+        <li class="profile-fields">
+          <p>first name:</p>
+          <p>last name:</p>
+          <p>email:</p>
+          <p>location:</p>
+          <p>about:</p>
+        </li>
+        <li class= "profile-info">
+          <p>{{ usersShowCtrl.user.firstName }}</p>
+          <p>{{ usersShowCtrl.user.lastName }}</p>
+          <p>{{ usersShowCtrl.user.email }}</p>
+          <p>{{ usersShowCtrl.user.location }}</p>
+          <p>{{ usersShowCtrl.user.about }}</p>
+        </li>
+      </ul>
+
+      <li id="edit-button"><a class="btn btn-default" ui-sref="usersEdit({id: usersShowCtrl.user._id})">Edit</a></li>
+      <li id="delete-button"><a class="btn btn-default" ng-click="usersShowCtrl.userDelete()">Delete</a></li>
     </div>
   </div>
+</div>
