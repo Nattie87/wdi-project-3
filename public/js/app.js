@@ -50711,7 +50711,7 @@ User.login(vm.user).$promise.then(function(data){var user=data.user?data.user:nu
 "use strict";angular.module("goodVibes").controller("DeedNewCtrl",DeedNewCtrl);DeedNewCtrl.$inject=["Deed","$state","CurrentUserService"];function DeedNewCtrl(Deed,$state,CurrentUserService){var vm=this;vm.user=CurrentUserService.getUser();// Must be wrapped in a function so that it is not invoked immediately
 // $save is an instance method
 vm.submit=function(){// assigning a value to the user associated to that deed
-vm.deed.userid=vm.user.id;console.log("DeedNewCtrl.deed",vm.deed);Deed.save({deed:vm.deed}).$promise.then(function(data){$state.go("myTasks");});};}
+vm.deed.userid=vm.user.id;console.log("DeedNewCtrl.deed",vm.deed);Deed.save({deed:vm.deed}).$promise.then(function(data){$state.go("myDeeds");});};}
 "use strict";angular.module("goodVibes").controller("registerCtrl",registerCtrl);registerCtrl.$inject=["User","CurrentUserService"];function registerCtrl(User,CurrentUserService){//vm is controller
 var vm=this;vm.register=function(){// need user key because in backend its req.body.user, so need to specify a key
 //post with key of user and value being model on the form
