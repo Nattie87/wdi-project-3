@@ -32,10 +32,10 @@ function Router($stateProvider, $locationProvider, $urlRouterProvider){
     templateUrl: "/js/views/users/edit.html",
     controller: "usersEditCtrl as usersEditCtrl"
   })
-  .state("myTasks", {
-    url: "/mytasks/",
-    templateUrl:  "/js/views/users/mytasks.html",
-    controller:   "MyTasksCtrl as MyTasksCtrl",
+  .state("myDeeds", {
+    url: "/my-deeds",
+    templateUrl:  "/js/views/deeds/my-deeds.html",
+    controller:   "MyDeedsCtrl as MyDeedsCtrl",
   })
   .state("deedIndex", {
     url: "/deeds",
@@ -57,10 +57,16 @@ function Router($stateProvider, $locationProvider, $urlRouterProvider){
     templateUrl:  "/js/views/deeds/edit.html",
     controller:   "DeedEditCtrl as deed",
   })
+  .state("requestsIndex", {
+    url: "/requests",
+    templateUrl:  "/js/views/requests/index.html",
+    controller:   "RequestsIndexCtrl as request",
+  })
   .state("requestsShow", {
     url: "/requests/:id",
     templateUrl:  "/js/views/requests/show.html",
-    controller:   "RequestsShowCtrl as request",
+    controller:   "RequestsShowCtrl as RequestsShowCtrl",
   });
+
   $urlRouterProvider.otherwise("/");
 }
