@@ -19,7 +19,6 @@ body {
   margin: 10px;
   background: $white;
   color: $black;
-} list-style: none;
 }
 
 #top, #bottom, #left, #right {
@@ -228,7 +227,6 @@ h1.ng-scope {
 #profilePic {
   margin: 0 auto;
   text-align: center;
-
 }
 
 .profile-fields, .profile-info {
@@ -245,8 +243,9 @@ h1.ng-scope {
 #profile-container {
   margin-top: -3%;
 
-h1 {
-  text-align: center;
+  h1 {
+    text-align: center;
+  }
 }
 
 // Tinder bro
@@ -261,6 +260,11 @@ section {
     margin: 25px auto;
     border-radius: 5px;
     overflow: hidden;
+    padding: 0;
+
+    li {
+      list-style-type: none;
+    }
 
     .tile {
       position: absolute;
@@ -333,3 +337,4 @@ section {
       }
     }
   }
+}

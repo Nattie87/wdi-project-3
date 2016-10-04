@@ -25,10 +25,18 @@
         <div class="modal-header">
           <h4 class="modal-title" id="myModalLabel">Add a message</h4>
         </div>
-        <div class="modal-footer">
-          <button class="button" type="button" class="btn btn-primary" ng-click="DeedIndexCtrl.submitMessage()">Send</button>
-        </div>
-      </form>
+        <form>
+          <div class="modal-body">
+            <div class="form-group">
+              <textarea type="text" class="form-control"
+              id="inputText" placeholder="Message" ng-model="DeedIndexCtrl.message.body"></textarea>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" ng-click="DeedIndexCtrl.submitMessage()">Send</button>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 </section>
