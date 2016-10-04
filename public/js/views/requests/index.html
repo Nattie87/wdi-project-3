@@ -1,6 +1,6 @@
 <h2>Requests</h2>
-<ul>
-  <li ng-repeat="request in request.requests track by $index" ui-sref="requestsShow({ id: request._id })">
+<ul class="container">
+  <li class="col-sm-4" ng-repeat="request in request.requests track by $index" ui-sref="requestsShow({ id: request._id })">
     <img ng-src="{{ request.sender.image }}">
   </li>
 </ul>
