@@ -20,6 +20,10 @@ body {
   color: $black;
 }
 
+li {
+  list-style: none;
+}
+
 #top, #bottom, #left, #right {
   background: $yellow;
   position: fixed;
@@ -180,4 +184,44 @@ h1.ng-scope {
   from    { transform:rotate(-360deg); }
   30%,60% { transform:rotate(75deg); }
   80%     { transform:rotate(0); }
+}
+
+
+//Ben's profile page styling
+
+#profile-container {
+  margin: 0 auto;
+  margin-bottom: 10%;
+  width: 350px;
+  text-align: center;
+
+}
+
+.profile-picture {
+  width: 310px;
+  height: 300px;
+  margin: 0 auto;
+  margin-bottom: 8%;
+  text-align: center;
+}
+
+#profilePic {
+  margin: 0 auto;
+  text-align: center;
+
+}
+
+.profile-fields, .profile-info {
+  display: inline-block;
+  text-align: left;
+  padding: 10px;
+}
+
+#edit-button, #delete-button {
+  display: inline-block;
+  margin: 4%;
+}
+
+#profile-container {
+  margin-top: -3%;
 }
