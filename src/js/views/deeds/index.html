@@ -1,40 +1,42 @@
-<h1>Browse Deeds</h1>
+<section>
+  <h1>Browse Deeds</h1>
 
-<ul class="box">
-  <li ng-repeat="deed in DeedIndexCtrl.deeds track by $index">
-    <div class="tile animated" ng-class="deed.animation" ng-swipe-left="DeedIndexCtrl.swipedLeft(deed)" ng-swipe-right="DeedIndexCtrl.swipedRight(deed)">
-      <div>
-        <img class="placeholder" ng-src="{{ deed.image }}" />
-        <div class="info">
-          <ul>
-            <li ui-sref="usersShow({ id: deed.user._id })"><img ng-src="{{ deed.user.image }}"/></li>
-            <li class="title">{{deed.deed }}</li>
-            <li class="right" ng-click="DeedIndexCtrl.swipedRight(deed)"><i class="yes fa fa-thumbs-o-up" aria-hidden="true"></i></li>
-            <li class="right" ng-click="DeedIndexCtrl.swipedLeft(deed)"><i class="no fa fa-thumbs-o-down" aria-hidden="true"></i></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </li>
-</ul>
-
-<div class="modal fade" id="deedModal" tabindex="-1" data-backdrop="static" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title" id="myModalLabel">Add a message</h4>
-      </div>
-      <form>
-        <div class="modal-body">
-          <div class="form-group">
-            <textarea type="text" class="form-control"
-            id="inputText" placeholder="Message" ng-model="DeedIndexCtrl.message.body"></textarea>
+  <ul class="box">
+    <li ng-repeat="deed in DeedIndexCtrl.deeds track by $index">
+      <div class="tile animated" ng-class="deed.animation" ng-swipe-left="DeedIndexCtrl.swipedLeft(deed)" ng-swipe-right="DeedIndexCtrl.swipedRight(deed)">
+        <div>
+          <img class="placeholder" ng-src="{{ deed.image }}" />
+          <div class="info">
+            <ul>
+              <li ui-sref="usersShow({ id: deed.user._id })"><img ng-src="{{ deed.user.image }}"/></li>
+              <li class="title"><h4>{{deed.deed }}</h4></li>
+              <li class="right" ng-click="DeedIndexCtrl.swipedRight(deed)"><i class="yes fa fa-thumbs-o-up" aria-hidden="true"></i></li>
+              <li class="right" ng-click="DeedIndexCtrl.swipedLeft(deed)"><i class="no fa fa-thumbs-o-down" aria-hidden="true"></i></li>
+            </ul>
           </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary" ng-click="DeedIndexCtrl.submitMessage()">Send</button>
+      </div>
+    </li>
+  </ul>
+
+  <div class="modal fade" id="deedModal" tabindex="-1" data-backdrop="static" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="myModalLabel">Add a message</h4>
         </div>
-      </form>
+        <form>
+          <div class="modal-body">
+            <div class="form-group">
+              <textarea type="text" class="form-control"
+              id="inputText" placeholder="Message" ng-model="DeedIndexCtrl.message.body"></textarea>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" ng-click="DeedIndexCtrl.submitMessage()">Send</button>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
-</div>
+</section>

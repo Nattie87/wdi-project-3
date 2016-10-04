@@ -107,8 +107,8 @@ function createDeeds(done){
 
     Deed.create({
       user:   users[0]._id,
-      deed:     "Need some help",
-      image:    "https://source.unsplash.com/category/nature/400x400",
+      deed:     "Walk my dog",
+      image:    "http://www.dogwalkerscheltenham.co.uk/wp-content/uploads/2015/02/Prices-300x198.jpg",
       location: "London",
     }, (err, deed) => {
       if (err) return done(err);
