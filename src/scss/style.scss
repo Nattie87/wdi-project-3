@@ -6,7 +6,7 @@ $white:  #fffff9;
 $black:  #2b2b2b;
 
 $body-font-color: $black;
-$body-font-family: 'Playfair Display', serif;
+$body-font-family:  comfortaa, serif;
 
 // Structure
 html, body {
@@ -16,17 +16,19 @@ html, body {
 
 body {
   margin: 10px;
+  background: $white;
+  color: $black;
 }
 
 #top, #bottom, #left, #right {
-	background: $yellow;
-	position: fixed;
+  background: $yellow;
+  position: fixed;
 }
 
 #left, #right {
-	top: 0;
+  top: 0;
   bottom: 0;
-	width: 10px;
+  width: 10px;
 }
 
 #left {
@@ -38,9 +40,9 @@ body {
 }
 
 #top, #bottom {
-	left: 0;
+  left: 0;
   right: 0;
-	height: 10px;
+  height: 10px;
 }
 
 #top {
@@ -57,6 +59,11 @@ body {
   font-family: $body-font-family;
 }
 
+#vibes {
+  font-size: 40px;
+  font-weight: bold;
+  text-decoration: underline;
+}
 
 // Modules, e.g. header, footer
 
@@ -66,18 +73,19 @@ body {
 }
 
 .navbar {
-  min-height: 100px;
-  line-height: 100px;
+  min-height: 150px;
+  line-height: 150px;
 }
 
 .navbar-nav > li,
 .navbar-nav > li > a,
 .navbar-brand {
-  line-height: 100px;
-  min-height: 100px;
+  line-height: 150px;
+  min-height: 150px;
   padding-top: 0;
   padding-bottom: 0;
 }
+
 
 .navbar-default .navbar-nav>li>a,
 .navbar-default .navbar-text,
