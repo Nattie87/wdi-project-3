@@ -4,6 +4,7 @@
 $yellow: #fff578;
 $white:  #ffffff;
 $black:  #2b2b2b;
+$grey:   #878787;
 
 $body-font-color: $black;
 $body-font-family:  comfortaa, serif;
@@ -72,6 +73,21 @@ body {
   font-size: 50px;
   font-weight: bold;
   text-decoration: underline;
+  color: $grey;
+}
+
+// forms
+
+form {
+  width: 500px;
+  position: fixed;
+  left: 30%;
+}
+
+.btn-primary {
+  background-color: $grey;
+  float: right;
+  border: 5px solid $grey;
 }
 
 
