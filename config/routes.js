@@ -18,7 +18,7 @@ router.route('/users/:id')
   .put(users.update)
   .patch(users.update)
   .delete(users.delete);
-router.route("/users/:id/deeds")
+router.route("/my-deeds")
   .get(deeds.indexForUser);
 
 router.route('/deeds')
@@ -28,9 +28,12 @@ router.route('/deeds/:id')
   .get(deeds.show)
   .put(deeds.update)
   .delete(deeds.delete);
-router.route('/deeds/:id/requests')
-  .post(requests.create);
+router.route('/requests')
+  .post(requests.create)
+  .get(requests.index);
 router.route('/requests/:id')
   .get(requests.show);
+router.route('/requests/:id/reply')
+  .put(requests.reply);
 
 module.exports = router;

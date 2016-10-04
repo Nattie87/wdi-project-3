@@ -47,6 +47,50 @@ function createUsers(done){
       location:     "London",
       password:     "password",
       passwordConfirmation: "password"
+    },
+    {
+      username:     "Miriam",
+      firstName:    "Miriam",
+      lastName:     "Wodrich",
+      image:       "https://files.slack.com/files-pri/T0351JZQ0-F2JP11X50/14755221972588859690.jpg",
+      about:        "",
+      email:        "miriam@miriam.com",
+      location:     "London",
+      password:     "password",
+      passwordConfirmation: "password"
+    },
+    {
+      username:     "Ben",
+      firstName:    "Benedict",
+      lastName:     "Green",
+      image:        "https://files.slack.com/files-pri/T0351JZQ0-F2JM1HKNX/1475522442760495344.jpg",
+      about:        "carrot",
+      email:        "ben@ben.com",
+      location:     "London",
+      password:     "password",
+      passwordConfirmation: "password"
+    },
+    {
+      username:     "Nat",
+      firstName:    "Natalie",
+      lastName:     "Huitson",
+      image:        "https://files.slack.com/files-pri/T0351JZQ0-F2JNPT8KX/14755220523014632552.jpg",
+      about:        "carrot",
+      email:        "nat@nat.com",
+      location:     "London",
+      password:     "password",
+      passwordConfirmation: "password"
+    },
+    {
+      username:     "Laura",
+      firstName:    "Laura",
+      lastName:     "Tombs",
+      image:        "https://files.slack.com/files-pri/T0351JZQ0-F2JNUCHBR/14755225571885542899.jpg",
+      about:        "carrot",
+      email:        "laura@laura.com",
+      location:     "London",
+      password:     "password",
+      passwordConfirmation: "password"
     }
   ];
 
@@ -62,14 +106,16 @@ function createDeeds(done){
     if (err) return done(err);
 
     Deed.create({
-      userid:   users[0]._id,
+      user:   users[0]._id,
       deed:     "Need some help",
+      image:    "https://source.unsplash.com/category/nature/400x400",
       location: "London",
     }, (err, deed) => {
       if (err) return done(err);
 
       const request = new Request({
-        user: users[1]._id,
+        sender: users[1]._id,
+        receiver: deed.user,
         deed: deed._id,
         messages: [
           {

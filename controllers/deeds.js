@@ -11,8 +11,12 @@ const Deed  = require('../models/deed');
 
 function deedsIndex(req, res) {
   Deed
-  .find()
-  .populate("userid")
+  .find({
+    user: {
+      $ne: req.user._id
+    }
+  })
+  .populate("user")
   .exec((err, deeds) => {
     if (err) return res.status(500).json({ message: "Something went wrong." });
     return res.status(200).json({ deeds });
@@ -20,8 +24,10 @@ function deedsIndex(req, res) {
 }
 
 function deedsIndexForUser(req, res) {
-  Deed.find({userid:req.params.id})
-  .populate("userid")
+  Deed.find({
+    user: req.user._id
+  })
+  .populate("user")
   .exec((err, deeds) => {
     if (err) return res.status(500).json({ message: "Something went wrong." });
     return res.status(200).json({ deeds });
@@ -30,7 +36,7 @@ function deedsIndexForUser(req, res) {
 
 function deedsCreate(req, res) {
   let deed    = new Deed(req.body.deed);
-  deed.userid = req.user._id;
+  deed.user = req.user._id;
   deed.save((err, deed) => {
     if (err) return res.status(500).json({ message: "Something went wrong." });
     return res.status(201).json({ deed });
@@ -39,16 +45,7 @@ function deedsCreate(req, res) {
 
 function deedsShow(req, res) {
   Deed
-    .findById(req.params.id)
-    .populate({
-      path: "requests",
-      model: "Request",
-      populate: {
-        path: "user",
-        model: "User"
-      }
-    })
-    .exec((err, deed) => {
+    .findById(req.params.id, (err, deed) => {
       if (err) return res.status(500).json({ message: "Something went wrong." });
       if (!deed) return res.status(404).json({ message: "Deed not found." });
       return res.status(200).json({ deed });

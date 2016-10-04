@@ -1,111 +1,183 @@
 @import "bower";
-@import "body";
-@import "modules/navbar";
-@import "profile-page";
-@import "landing-page";
-@import "deeds";
-@import "my-tasks";
+
+// Variables
+$yellow: #fff578;
+$white:  #ffffff;
+$black:  #2b2b2b;
+
+$body-font-color: $black;
+$body-font-family:  comfortaa, serif;
+
+// Structure
+html, body {
+  height: 100%;
+  min-height: 100%;
+}
 
 body {
-  font-family: 'Lato', sans-serif;
+  margin: 10px;
+  background: $white;
+  color: $black;
 }
 
-ul {
-  list-style: none;
-  margin: 0;
+#top, #bottom, #left, #right {
+  background: $yellow;
+  position: fixed;
+}
+
+#left, #right {
+  top: 0;
+  bottom: 0;
+  width: 10px;
+}
+
+#left {
+  left: 0;
+}
+
+#right {
+  right: 0;
+}
+
+#top, #bottom {
+  left: 0;
+  right: 0;
+  height: 10px;
+}
+
+#top {
+  top: 0;
+}
+
+#bottom {
+  bottom: 0;
+}
+
+// Typeography
+body {
+  color: $body-font-color;
+  font-family: $body-font-family;
+}
+
+#goodDeeds {
+  margin-top: 50px;
+}
+
+.quote{
+  font-weight: bold;
+  font-size: 50px;
+}
+
+#vibes {
+  font-size: 50px;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+
+// Modules, e.g. header, footer
+
+.navbar-default {
+  background-color: $white;
+  border-color:     $white;
+}
+
+.navbar {
+  min-height: 200px;
+  line-height: 200px;
+}
+
+.navbar-nav > li,
+.navbar-nav > li > a,
+.navbar-brand {
+  line-height: 200px;
+  min-height: 200px;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+
+.navbar-default .navbar-nav>li>a,
+.navbar-default .navbar-text,
+.navbar-default .navbar-brand {
+  color: $body-font-color;
+}
+
+img {
+  height: 300px;
+  width: 300px;
+  box-shadow: 10px 10px 5px #888888;
+  border-radius: 5px;
+
+}
+
+ul.box.ng-scope {
+  // margin-top: -150px;
+  margin-right: -150px;
+}
+
+h1.ng-scope {
+  text-align: center;
+}
+
+// Partials, e.g. Specific pages
+@import "partials/requests/show";
+
+
+// animations
+.title {
+  position: absolute;
+  margin: auto;
+  top: 0; left: 0; bottom: 0; right: 0;
+  width: 150px;
+  height: 150px;
   padding: 0;
-
-  li {
-    a {
-      &:hover {
-        cursor: pointer;
-      }
-    }
-  }
+  list-style: none;
+  text-align: center;
 }
 
-#inputText {
-  height: 100%;
-  width: 100%;
+.animation {
+  position: absolute;
+  width: 450px ;
+  height: 450px ;
+  border-radius: 5px;
+  background: $yellow;
+  opacity: 0.8;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -200px;
+  margin-left: -250px;
+}
+.animation:nth-child(2) {
+  animation:         rotation1 3s;
 }
 
-.box {
-  overflow: hidden;
-  margin: 0 auto;
-  position: relative;
-  width: 400px;
-  height: 400px;
-  .tile {
-    text-align: center;
-    position: absolute;
-    width: 400px;
-    height: 400px;
-    background: white;
+.animation:nth-child(3) {
+  animation:         rotation2 3s;
+  animation-delay:         0.2s;
+}
 
-    div {
-      position: relative;
-      width: 400px;
-      height: 400px;
+.animation:nth-child(4) {
+  animation:         rotation3 3s;
+  animation-delay:         0.4s;
+}
 
-      .info {
-        position: absolute;
 
-        ul {
-          position: absolute;
-          bottom: 0px;
-          background: linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.9));
-          width: 100%;
-          text-align: left;
-          padding: 8px;
-          li {
-            display: inline-block;
-            line-height: 60px;
-            color: #fff;
-            cursor: pointer;
+@keyframes rotation1 {
+  from     { transform:rotate(-360deg); }
+  30%,60%  { transform:rotate(20deg); }
+  80%      { transform:rotate(0); }
+}
 
-            &.title {
-              margin: 0px 10px;
-              font-size: 15px;
-              font-weight: 300;
-            }
+@keyframes rotation2 {
+  from     { transform:rotate(-360deg); }
+  30%, 60% { transform:rotate(45deg); }
+  80%      { transform:rotate(0); }
+}
 
-            &.right {
-              float: right;
-              padding: 10px;
-              font-size: 25px;
-              position: relative;
-              top: -10px;
-
-              // i {
-              //   transition: color 0.2s linear;
-              //
-              //   &.yes:hover { color: lighten(#55AA55, 20%); }
-              //   &.no:hover { color: lighten(#D46A6A, 20%); }
-              // }
-            }
-
-            img {
-              width: 70px;
-              height: 70px;
-              border-radius: 100px;
-              border: 2px solid #fff;
-            }
-          }
-        }
-      }
-    }
-    img {
-      user-drag: none;
-      user-select: none;
-      -moz-user-select: none;
-      -webkit-user-drag: none;
-      -webkit-user-select: none;
-      -ms-user-select: none;
-
-      width: inherit;
-      height: inherit;
-
-      filter: brightness(.9);
-    }
-  }
+@keyframes rotation3 {
+  from    { transform:rotate(-360deg); }
+  30%,60% { transform:rotate(75deg); }
+  80%     { transform:rotate(0); }
 }

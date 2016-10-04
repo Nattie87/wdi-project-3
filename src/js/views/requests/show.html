@@ -1,10 +1,17 @@
-<em>The request and the messages inside</em>
-
-<ul>
-  <li ng-repeat="message in request.request.messages track by $index">
-    <div>
-      <img ng-src="{{ message.sender.image }}">
-      <p>{{ message.body }}</p>
-    </div>
-  </li>
-</ul>
+<div class="iphone">
+  <div class="border">
+    <form class="chat" ng-submit="RequestsShowCtrl.reply()">
+      <span></span>
+      <div class="messages" id="adobewordpress">
+        <div class="message" ng-repeat="message in RequestsShowCtrl.request.messages track by $index">
+          <div ng-class="main.user.id === message.sender._id ? 'myMessage' : 'fromThem'">
+            <p>{{ message.body }}</p>
+            <date><b>{{ message.sender.username }}</b> {{ message.createdAt }}</date>
+          </div>
+        </div>
+      </div>
+      <input type="text" placeholder="Your message" ng-model="RequestsShowCtrl.message.body">
+      <input type="submit" value="Send">
+    </form>
+  </div>
+</div>

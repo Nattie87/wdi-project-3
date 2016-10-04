@@ -15,8 +15,7 @@ angular
         'update':         { method: 'PUT' },
         'query_for_user': {
           method: 'GET',
-          url: `${API}/users/:id/deeds`,
-          params: { id: '@_id'}
+          url: `${API}/my-deeds`,
         }
       }
     );

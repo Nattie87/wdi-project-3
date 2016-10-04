@@ -19,7 +19,7 @@ describe("Deed tests", () => {
   });
 }
 
-  describe("GET /api/deeds", () => {
+  describe("GET /api/deeds", () =>
     beforeEach(done => {
       const deed = new deed({
         deed: "Plant my window boxes",
@@ -59,4 +59,4 @@ describe("Deed tests", () => {
           done();
         });
       });
-    });
+    }));

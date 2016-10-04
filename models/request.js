@@ -8,7 +8,8 @@ const messageSchema = new mongoose.Schema({
 });
 
 const requestSchema = new mongoose.Schema({
-  user:     { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
+  sender:   { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
+  receiver: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
   deed:     { type: mongoose.Schema.Types.ObjectId, ref: "Deed", required: true },
   messages: [messageSchema],
   rating:   { type: Number, min: 0, max: 5 }
@@ -16,13 +17,15 @@ const requestSchema = new mongoose.Schema({
   timestamps: true
 });
 
-requestSchema.pre("save", function(done) {
+requestSchema.pre("validate", function(done) {
   const self = this;
   self.model("Deed").findById(self.deed, (err, deed) => {
     if (err) return done(err);
     deed.requests.addToSet(self);
     deed.save((err, deed) => {
       if (err) return done(err);
+
+      self.receiver = deed.user;
       return done();
     });
   });
