@@ -10,7 +10,6 @@ function MyDeedsCtrl(Deed, CurrentUserService){
   Deed.query_for_user()
     .$promise
     .then(data => {
-      console.log(data.deeds)
       vm.deeds = data.deeds;
     });
 
