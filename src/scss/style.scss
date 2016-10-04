@@ -239,6 +239,10 @@ h1.ng-scope {
   padding: 10px;
 }
 
+.profile-fields {
+
+}
+
 #edit-button, #delete-button {
   display: inline-block;
   margin: 4%;
@@ -250,6 +254,14 @@ h1.ng-scope {
   h1 {
     text-align: center;
   }
+}
+
+#profile-about {
+  height: 10%;
+  text-align: left;
+  width: inherit;;
+  margin-left: 41px;
+  margin-bottom: 5%;
 }
 
 // Tinder bro
