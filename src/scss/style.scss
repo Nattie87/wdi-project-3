@@ -78,16 +78,20 @@ body {
 
 // forms
 
-form {
+.form {
   width: 500px;
   position: fixed;
   left: 30%;
 }
-
-.btn-primary {
+#deedModal {
+  text-align: center;
+}
+.button {
   background-color: $grey;
-  float: right;
   border: 5px solid $grey;
+  border-radius: 5px;
+  color: $black;
+  list-style: none;
 }
 
 
