@@ -103,6 +103,22 @@ body {
   color: $body-font-color;
 }
 
+img {
+  height: 300px;
+  width: 300px;
+  box-shadow: 10px 10px 5px #888888;
+  border-radius: 5px;
+
+}
+
+ul.box.ng-scope {
+  // margin-top: -150px;
+  margin-right: -150px;
+}
+
+h1.ng-scope {
+  text-align: center;
+}
 
 // Partials, e.g. Specific pages
 @import "partials/requests/show";
