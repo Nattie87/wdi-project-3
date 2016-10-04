@@ -47,6 +47,50 @@ function createUsers(done){
       location:     "London",
       password:     "password",
       passwordConfirmation: "password"
+    },
+    {
+      username:     "Miriam",
+      firstName:    "Miriam",
+      lastName:     "Wodrich",
+      image:       "https://files.slack.com/files-pri/T0351JZQ0-F2JP11X50/14755221972588859690.jpg",
+      about:        "",
+      email:        "miriam@miriam.com",
+      location:     "London",
+      password:     "password",
+      passwordConfirmation: "password"
+    },
+    {
+      username:     "Ben",
+      firstName:    "Benedict",
+      lastName:     "Green",
+      image:        "https://files.slack.com/files-pri/T0351JZQ0-F2JM1HKNX/1475522442760495344.jpg",
+      about:        "carrot",
+      email:        "ben@ben.com",
+      location:     "London",
+      password:     "password",
+      passwordConfirmation: "password"
+    },
+    {
+      username:     "Nat",
+      firstName:    "Natalie",
+      lastName:     "Huitson",
+      image:        "https://files.slack.com/files-pri/T0351JZQ0-F2JNPT8KX/14755220523014632552.jpg",
+      about:        "carrot",
+      email:        "nat@nat.com",
+      location:     "London",
+      password:     "password",
+      passwordConfirmation: "password"
+    },
+    {
+      username:     "Laura",
+      firstName:    "Laura",
+      lastName:     "Tombs",
+      image:        "https://files.slack.com/files-pri/T0351JZQ0-F2JNUCHBR/14755225571885542899.jpg",
+      about:        "carrot",
+      email:        "laura@laura.com",
+      location:     "London",
+      password:     "password",
+      passwordConfirmation: "password"
     }
   ];
 
