@@ -1,0 +1,16 @@
+<h2>Add Deed</h2>
+<form ng-submit="DeedNewCtrl.submit()">
+  <div class="form-group">
+    <label>Deed</label>
+    <input ng-model="DeedNewCtrl.deed.deed" class="form-control">
+  </div>
+  <div class="form-group">
+    <label>Image</label>
+    <input ng-model="DeedNewCtrl.deed.image" class="form-control">
+  </div>
+  <div class="form-group">
+    <label>Location</label>
+    <textarea ng-model="DeedNewCtrl.deed.location" class="form-control"></textarea>
+  </div>
+  <input type="submit" value="Add" class="btn btn-primary">
+</form>
