@@ -120,6 +120,10 @@ h1.ng-scope {
   text-align: center;
 }
 
+.container {
+  list-style: none;
+}
+
 // Partials, e.g. Specific pages
 @import "partials/requests/show";
 
