@@ -2,7 +2,7 @@
 
 // Variables
 $yellow: #fff578;
-$white:  #fffff9;
+$white:  #ffffff;
 $black:  #2b2b2b;
 
 $body-font-color: $black;
@@ -59,11 +59,21 @@ body {
   font-family: $body-font-family;
 }
 
+#goodDeeds {
+  margin-top: 100px;
+}
+
+.quote{
+  font-weight: bold;
+  font-size: 50px;
+}
+
 #vibes {
-  font-size: 40px;
+  font-size: 50px;
   font-weight: bold;
   text-decoration: underline;
 }
+
 
 // Modules, e.g. header, footer
 
@@ -73,15 +83,15 @@ body {
 }
 
 .navbar {
-  min-height: 150px;
-  line-height: 150px;
+  min-height: 200px;
+  line-height: 200px;
 }
 
 .navbar-nav > li,
 .navbar-nav > li > a,
 .navbar-brand {
-  line-height: 150px;
-  min-height: 150px;
+  line-height: 200px;
+  min-height: 200px;
   padding-top: 0;
   padding-bottom: 0;
 }
@@ -96,3 +106,62 @@ body {
 
 // Partials, e.g. Specific pages
 @import "partials/requests/show";
+
+
+// animations
+.title {
+  position: absolute;
+  margin: auto;
+  top: 0; left: 0; bottom: 0; right: 0;
+  width: 150px;
+  height: 150px;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+}
+
+.animation {
+  position: absolute;
+  width: 500px ;
+  height: 500px ;
+  border-radius: 5px;
+  background: $yellow;
+  opacity: 0.8;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -200px;
+  margin-left: -250px;
+}
+.animation:nth-child(2) {
+  animation:         rotation1 3s;
+}
+
+.animation:nth-child(3) {
+  animation:         rotation2 3s;
+  animation-delay:         0.2s;
+}
+
+.animation:nth-child(4) {
+  animation:         rotation3 3s;
+  animation-delay:         0.4s;
+}
+
+
+@keyframes rotation1 {
+  from     { transform:rotate(-360deg); }
+  30%,60%  { transform:rotate(20deg); }
+  80%      { transform:rotate(0); }
+}
+
+@keyframes rotation2 {
+  from     { transform:rotate(-360deg); }
+  30%, 60% { transform:rotate(45deg); }
+  80%      { transform:rotate(0); }
+}
+
+@keyframes rotation3 {
+  from    { transform:rotate(-360deg); }
+  30%,60% { transform:rotate(75deg); }
+  80%     { transform:rotate(0); }
+}
