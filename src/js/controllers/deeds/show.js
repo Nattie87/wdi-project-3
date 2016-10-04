@@ -15,7 +15,7 @@ function DeedShowCtrl(Deed, $stateParams, $state){
       .delete($stateParams)
       .$promise
       .then(data => {
-        $state.go("myTasks");
+        $state.go("myDeeds");
       });
   };
 }

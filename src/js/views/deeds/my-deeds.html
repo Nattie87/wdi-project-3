@@ -1,6 +1,6 @@
 <h1>My Deeds</h1>
-<ul class="box">
-  <li ng-repeat="deed in MyDeedsCtrl.deeds track by $index">
+<ul class="container">
+  <li class="col-sm-4" ng-repeat="deed in MyDeedsCtrl.deeds track by $index">
     <div>
       <div>
         <img class="placeholder" ng-src="{{ deed.image }}" />
