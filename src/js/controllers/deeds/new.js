@@ -18,8 +18,7 @@ function DeedNewCtrl(Deed, $state, CurrentUserService){
       .save({ deed: vm.deed })
       .$promise
       .then(data => {
-
-        $state.go("myTasks");
+        $state.go("myDeeds");
       });
   };
 
