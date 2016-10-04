@@ -20,13 +20,13 @@ body {
   color: $black;
 }
 
-<<<<<<< HEAD
-li {
-=======
+// // <<<<<<< HEAD
+// li {
+// // =======
 ul {
   margin: 0;
   padding: 0;
->>>>>>> development
+// >>>>>>> development
   list-style: none;
 }
 
@@ -196,49 +196,49 @@ h1.ng-scope {
   80%     { transform:rotate(0); }
 }
 
-<<<<<<< HEAD
+// <<<<<<< HEAD
 
 //Ben's profile page styling
 
-#profile-container {
-  margin: 0 auto;
-  margin-bottom: 10%;
-  width: 350px;
-  text-align: center;
-
-}
-
-.profile-picture {
-  width: 310px;
-  height: 300px;
-  margin: 0 auto;
-  margin-bottom: 8%;
-  text-align: center;
-}
-
-#profilePic {
-  margin: 0 auto;
-  text-align: center;
-
-}
-
-.profile-fields, .profile-info {
-  display: inline-block;
-  text-align: left;
-  padding: 10px;
-}
-
-#edit-button, #delete-button {
-  display: inline-block;
-  margin: 4%;
-}
-
-#profile-container {
-  margin-top: -3%;
-=======
-h1 {
-  text-align: center;
-}
+// #profile-container {
+//   margin: 0 auto;
+//   margin-bottom: 10%;
+//   width: 350px;
+//   text-align: center;
+//
+// }
+//
+// .profile-picture {
+//   width: 310px;
+//   height: 300px;
+//   margin: 0 auto;
+//   margin-bottom: 8%;
+//   text-align: center;
+// }
+//
+// #profilePic {
+//   margin: 0 auto;
+//   text-align: center;
+//
+// }
+//
+// .profile-fields, .profile-info {
+//   display: inline-block;
+//   text-align: left;
+//   padding: 10px;
+// }
+//
+// #edit-button, #delete-button {
+//   display: inline-block;
+//   margin: 4%;
+// }
+//
+// #profile-container {
+//   margin-top: -3%;
+//
+// h1 {
+//   text-align: center;
+// }
 
 // Tinder bro
 
@@ -324,5 +324,5 @@ section {
       }
     }
   }
->>>>>>> development
+// >>>>>>> development
 }
