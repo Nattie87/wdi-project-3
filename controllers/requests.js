@@ -57,7 +57,11 @@ function requestsReply(req, res){
     });
     request.save((err, request) => {
       if (err) return res.status(500).json({ message: "Something went wrong." });
-      return res.status(200).json({ request });
+      Request
+        .populate(request, {path: "messages.sender"}, (err, request) => {
+          if (err) return res.status(500).json({ message: "Something went wrong." });
+          return res.status(200).json({ request });
+        });
     });
   });
 }

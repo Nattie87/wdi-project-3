@@ -17,8 +17,9 @@ function RequestsShowCtrl(Request, $stateParams, $state){
       .reply({ id: vm.request._id }, { message: vm.message })
       .$promise
       .then(data => {
-        console.log(data.request);
+        console.log(data.request)
         vm.request = data.request;
+        vm.message = null;
       })
       .catch(console.log);
   }
