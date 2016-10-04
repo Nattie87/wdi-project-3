@@ -21,6 +21,12 @@ body {
   color: $black;
 }
 
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
 #top, #bottom, #left, #right {
   background: $yellow;
   position: fixed;
@@ -128,7 +134,6 @@ img {
   width: 300px;
   box-shadow: 10px 10px 5px #888888;
   border-radius: 5px;
-
 }
 
 ul.box.ng-scope {
@@ -186,7 +191,6 @@ h1.ng-scope {
   animation:         rotation3 3s;
   animation-delay:         0.4s;
 }
-
 
 @keyframes rotation1 {
   from     { transform:rotate(-360deg); }
@@ -336,5 +340,4 @@ section {
         }
       }
     }
-  }
-}
+  }}
