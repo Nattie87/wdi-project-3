@@ -23,14 +23,15 @@
           <p>last name:</p>
           <p>email:</p>
           <p>location:</p>
-          <p>about:</p>
         </li>
         <li class= "profile-info">
           <p>{{ usersShowCtrl.user.firstName }}</p>
           <p>{{ usersShowCtrl.user.lastName }}</p>
           <p>{{ usersShowCtrl.user.email }}</p>
           <p>{{ usersShowCtrl.user.location }}</p>
-          <p>{{ usersShowCtrl.user.about }}</p>
+        </li>
+        <li>
+          <div id="profile-about">about: {{ usersShowCtrl.user.about }}</div>
         </li>
       </ul>
 
