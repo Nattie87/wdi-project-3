@@ -1,6 +1,6 @@
-const mongoose  = require("mongoose");
-const bcrypt    = require("bcrypt");
-const validator = require("validator");
+const mongoose   = require("mongoose");
+const bcrypt     = require("bcrypt");
+const validator  = require("validator");
 
 const userSchema = new mongoose.Schema({
   username:     { type: String, unique: true, trim: true, required: true },
@@ -39,7 +39,7 @@ userSchema.set("toJSON", {
   }
 });
 
-module.exports = mongoose.model("User", userSchema);
+module.exports      = mongoose.model("User", userSchema);
 
 function setPassword(value){
   this._password    = value;
@@ -51,7 +51,7 @@ function setPasswordConfirmation(passwordConfirmation) {
 }
 
 function validatePasswordHash() {
-  if (this.isNew) {
+    if (this.isNew) {
     if (!this._password) {
       return this.invalidate("password", "A password is required.");
     }
@@ -67,7 +67,7 @@ function validatePasswordHash() {
 }
 
 function validateEmail(email) {
-  if (!validator.isEmail(email)) {
+   if (!validator.isEmail(email)) {
     return this.invalidate('email', 'must be a valid email address');
   }
 }

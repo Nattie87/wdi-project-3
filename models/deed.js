@@ -1,4 +1,4 @@
-const mongoose = require ("mongoose");
+const mongoose   = require ("mongoose");
 
 const deedSchema = new mongoose.Schema({
   deed:       { type: String, unique: true, trim: true, required: true },
@@ -10,4 +10,4 @@ const deedSchema = new mongoose.Schema({
   timestamps: true
 });
 
-module.exports = mongoose.model("Deed", deedSchema);
+module.exports   = mongoose.model("Deed", deedSchema);

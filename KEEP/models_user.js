@@ -41,8 +41,8 @@ userSchema.set("toJSON", {
 module.exports = mongoose.model("User", userSchema);
 
 function setPassword(value){
-  this._password    = value;
-  this.passwordHash = bcrypt.hashSync(value, bcrypt.genSaltSync(8));
+  this._password       = value;
+  this.passwordHash    = bcrypt.hashSync(value, bcrypt.genSaltSync(8));
 }
 
 function setPasswordConfirmation(passwordConfirmation) {

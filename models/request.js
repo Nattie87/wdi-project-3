@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose      = require("mongoose");
 
 const messageSchema = new mongoose.Schema({
   sender: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
@@ -18,9 +18,9 @@ const requestSchema = new mongoose.Schema({
 });
 
 requestSchema.pre("validate", function(done) {
-  const self = this;
+  const self        = this;
   self.model("Deed").findById(self.deed, (err, deed) => {
-    if (err) return done(err);
+    if (err)   return done(err);
     deed.requests.addToSet(self);
     deed.save((err, deed) => {
       if (err) return done(err);
@@ -31,4 +31,4 @@ requestSchema.pre("validate", function(done) {
   });
 });
 
-module.exports = mongoose.model("Request", requestSchema);
+module.exports      = mongoose.model("Request", requestSchema);

@@ -8,18 +8,18 @@ function userFactory(API, $resource) {
     return $resource(`${API}/users/:id`, {
         id: "@_id"
     }, {
-        'query': {
+        'query':    {
             method: "GET",
             isArray: false
         },
-        'update': {
+        'update':   {
           method: "PUT"
         },
         'register': {
             method: "POST",
             url: `${API}/register`
         },
-        'login': {
+        'login':    {
             method: "POST",
             url: `${API}/login`
         },

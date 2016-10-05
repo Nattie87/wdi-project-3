@@ -4,8 +4,8 @@ angular
 
 DeedNewCtrl.$inject = ["Deed", "$state", "CurrentUserService"];
 function DeedNewCtrl(Deed, $state, CurrentUserService){
-  const vm  = this;
-  vm.user = CurrentUserService.getUser();
+  const vm          = this;
+  vm.user           = CurrentUserService.getUser();
 
 
   // Must be wrapped in a function so that it is not invoked immediately
