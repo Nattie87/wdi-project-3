@@ -1,5 +1,5 @@
 <section>
-  <h1>Browse Deeds</h1>
+  <!-- <h1>Browse Deeds</h1> -->
 
   <ul class="box">
         <li ng-repeat="deed in DeedIndexCtrl.deeds track by $index">
@@ -9,7 +9,7 @@
           <div class="info">
             <ul>
               <li ui-sref="usersShow({ id: deed.user._id })"><img ng-src="{{ deed.user.image }}"/></li>
-              <li class="title"><h4>{{deed.deed }}</h4></li>
+              <li class="title"><div id="deed-dot-deed"><h4>{{deed.deed }}</h4></div></li>
               <li class="right" ng-click="DeedIndexCtrl.swipedRight(deed)"><i class="yes fa fa-thumbs-o-up" aria-hidden="true"></i></li>
               <li class="right" ng-click="DeedIndexCtrl.swipedLeft(deed)"><i class="no fa fa-thumbs-o-down" aria-hidden="true"></i></li>
             </ul>
