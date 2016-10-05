@@ -26,4 +26,9 @@ function mainCtrl($rootScope, CurrentUserService, $state, $stateParams) {
   vm.selected = () => {
     $on.addClass('active');
   };
+
+  $rootScope.$on("loggedOut", () => {
+   vm.user = null;
+   $state.go("home");
+ });
 }
