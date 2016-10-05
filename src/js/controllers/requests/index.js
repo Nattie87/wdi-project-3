@@ -8,5 +8,6 @@ function RequestsIndexCtrl(Request, $stateParams, $state){
 
   Request.query(data => {
     vm.requests = data.requests;
+    console.log(vm.requests);
   });
 }

@@ -15,7 +15,7 @@ function requestsIndex(req, res) {
       { receiver: req.user._id }
     ]
   })
-  .populate(["sender"])
+  .populate(["sender", "deed"])
   .exec((err, requests) => {
     if (err) return res.status(500).json({ message: "Something went wrong." });
     return res.status(201).json({ requests });
