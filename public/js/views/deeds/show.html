@@ -1,0 +1,7 @@
+<h1>{{ deed.deed.deed }}</h1>
+<img ng-src="{{ deed.deed.image }}">
+
+<ul class="list-inline">
+  <li class="button" ><a class="button"  class="btn btn-default" ui-sref="deedEdit({id: deed.deed._id})">Edit</a></li>
+  <li class="button" ><a class="button"  class="btn btn-default" ng-click="deed.deedDelete()">Delete</a></li>
+</ul>

@@ -147,14 +147,17 @@ body {
 .navbar-default .navbar-text,
 .navbar-default .navbar-brand {
   color: $body-font-color;
+
   &:hover {
     font-weight: bolder;
   }
 
-  .active {
+  &.active {
     background-color: $yellow !important;
-    background: radial-gradient($white 35%, $yellow 60%)
+    background: linear-gradient($white 35%, $yellow 60%, white 30%);
   }
+
+}
 
   img {
     height: 300px;
@@ -307,7 +310,7 @@ body {
   #profile-about {
     height: 10%;
     text-align: left;
-    width: inherit;;
+    width: inherit;
     margin-left: 41px;
     margin-bottom: 5%;
   }
