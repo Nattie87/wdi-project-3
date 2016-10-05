@@ -92,7 +92,8 @@ function createUsers(done){
       location:     "Schuh",
       password:     "password",
       passwordConfirmation: "password"
-
+    },
+    {
       username:             "turnip",
       firstName:            "turnip",
       lastName:             "turnip",

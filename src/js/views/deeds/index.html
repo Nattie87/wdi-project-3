@@ -2,7 +2,7 @@
   <h1>Browse Deeds</h1>
 
   <ul class="box">
-    <li ng-repeat="deed in DeedIndexCtrl.deeds track by $index">
+        <li ng-repeat="deed in DeedIndexCtrl.deeds track by $index">
       <div class="tile animated" ng-class="deed.animation" ng-swipe-left="DeedIndexCtrl.swipedLeft(deed)" ng-swipe-right="DeedIndexCtrl.swipedRight(deed)">
         <div>
           <img class="placeholder" ng-src="{{ deed.image }}" />
