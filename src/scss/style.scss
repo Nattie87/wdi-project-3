@@ -285,10 +285,15 @@ h1.ng-scope {
   display: inline-block;
   text-align: left;
   padding: 10px;
+
 }
 
-.profile-fields {
+.profile-info {
+  width: 50%;
+}
 
+.media-left {
+  width: 50%;
 }
 
 #edit-button, #delete-button {
