@@ -4,11 +4,11 @@ angular
 
 DeedIndexCtrl.$inject = ["Deed", "$stateParams", "CurrentUserService", "Request"];
 function DeedIndexCtrl(Deed, $stateParams, CurrentUserService, Request){
-  const vm         = this;
-  vm.user          = CurrentUserService.getUser();
-  vm.swipedLeft    = swipedLeft;
-  vm.swipedRight   = swipedRight;
-  vm.submitMessage = submitMessage;
+  const vm            = this;
+  vm.user             = CurrentUserService.getUser();
+  vm.swipedLeft       = swipedLeft;
+  vm.swipedRight      = swipedRight;
+  vm.submitMessage    = submitMessage;
 
   Deed
     .query($stateParams)
@@ -18,11 +18,11 @@ function DeedIndexCtrl(Deed, $stateParams, CurrentUserService, Request){
     });
 
     function swipedLeft(deed) {
-      deed.animation = "slideOutLeft";
+      deed.animation  = "slideOutLeft";
     }
 
     function swipedRight(deed) {
-      deed.animation = "slideOutRight";
+      deed.animation  = "slideOutRight";
       vm.deed = deed;
       $('#deedModal').modal('show');
     }

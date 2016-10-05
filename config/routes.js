@@ -1,5 +1,5 @@
-const express  = require("express");
-const router   = express.Router();
+const express         = require("express");
+const router          = express.Router();
 
 const authentications = require("../controllers/authentications");
 const users           = require("../controllers/users");
@@ -11,9 +11,9 @@ router.route("/register")
 router.route("/login")
   .post(authentications.login);
 
-router.route('/users')
+router.route("/users")
   .get(users.index);
-router.route('/users/:id')
+router.route("/users/:id")
   .get(users.show)
   .put(users.update)
   .patch(users.update)
@@ -21,19 +21,19 @@ router.route('/users/:id')
 router.route("/my-deeds")
   .get(deeds.indexForUser);
 
-router.route('/deeds')
+router.route("/deeds")
   .get(deeds.index)
   .post(deeds.create);
-router.route('/deeds/:id')
+router.route("/deeds/:id")
   .get(deeds.show)
   .put(deeds.update)
   .delete(deeds.delete);
-router.route('/requests')
+router.route("/requests")
   .post(requests.create)
   .get(requests.index);
-router.route('/requests/:id')
+router.route("/requests/:id")
   .get(requests.show);
-router.route('/requests/:id/reply')
+router.route("/requests/:id/reply")
   .put(requests.reply);
 
 module.exports = router;
