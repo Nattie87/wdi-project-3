@@ -1,5 +1,5 @@
-const express  = require("express");
-const router   = express.Router();
+const express         = require("express");
+const router          = express.Router();
 
 const authentications = require("../controllers/authentications");
 const users           = require("../controllers/users");
@@ -31,4 +31,4 @@ router.route('/deeds/:userid/favourite')
 
 
 
-module.exports = router;
+module.exports        = router;
