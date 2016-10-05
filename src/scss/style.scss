@@ -178,6 +178,25 @@ h1.ng-scope {
   list-style: none;
 }
 
+.col-sm-4 {
+  padding-top: 15px;
+}
+
+.mainCard {
+  width: 310px;
+  height: 310px;
+  .cardDiv{
+    height: 100px;
+    width: 300px;
+    z-index: 1000;
+    margin-top: -70px;
+    .cardText{
+        color: white;
+        margin: 5px;
+    }
+  }
+}
+
 // Partials, e.g. Specific pages
 @import "partials/requests/show";
 

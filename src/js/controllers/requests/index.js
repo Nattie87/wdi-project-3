@@ -7,6 +7,7 @@ function RequestsIndexCtrl(Request, $stateParams, $state){
   const vm                = this;
 
   Request.query(data => {
+    vm.requests = data.requests;
     vm.requests           = data.requests;
   });
 }
