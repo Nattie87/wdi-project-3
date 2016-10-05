@@ -4,13 +4,13 @@ angular
 
 DeedShowCtrl.$inject = ["Deed", "$stateParams", "$state"];
 function DeedShowCtrl(Deed, $stateParams, $state){
-  const vm = this;
+  const vm           = this;
 
   Deed.get($stateParams, data => {
-    vm.deed = data.deed;
+    vm.deed          = data.deed;
   });
 
-  vm.deedDelete = () => {
+  vm.deedDelete      = () => {
     Deed
       .delete($stateParams)
       .$promise
