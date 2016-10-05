@@ -1,6 +1,6 @@
 angular
-  .module("goodVibes")
-  .controller("mainCtrl", mainCtrl);
+.module("goodVibes")
+.controller("mainCtrl", mainCtrl);
 
 mainCtrl.$inject = ["$rootScope", "CurrentUserService", "$state", "$stateParams"];
 function mainCtrl($rootScope, CurrentUserService, $state, $stateParams) {
@@ -18,8 +18,12 @@ function mainCtrl($rootScope, CurrentUserService, $state, $stateParams) {
     $state.go("deedIndex");
   });
 
-  $rootScope.$on("loggedOut", () => {
-    vm.user = null;
-    $state.go("home");
+  $rootScope.$on("loggedIn", () => {
+    vm.user = CurrentUserService.getUser();
+    $state.go("deedIndex");
   });
+
+  vm.selected = () => {
+    $on.addClass('active');
+  };
 }
